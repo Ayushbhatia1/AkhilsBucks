@@ -25,17 +25,17 @@
 }
 
 [data-theme="light"] {
-  --navy: #f5f5f0;
-  --navy-light: #eaeae4;
-  --navy-mid: #ddddd7;
-  --gold: #b8922e;
-  --gold-light: #a07d1e;
-  --gold-dim: #8a6a1a;
-  --white: #1a1a1a;
-  --white-soft: #4a4a4a;
-  --glass: rgba(0, 0, 0, 0.03);
-  --glass-border: rgba(0, 0, 0, 0.08);
-  --shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  --navy: #faf8f4;
+  --navy-light: #f0ece4;
+  --navy-mid: #e6e0d4;
+  --gold: #c9952a;
+  --gold-light: #b8860b;
+  --gold-dim: #96761e;
+  --white: #1c1917;
+  --white-soft: #57534e;
+  --glass: rgba(0, 0, 0, 0.04);
+  --glass-border: rgba(0, 0, 0, 0.10);
+  --shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
 }
 
 html {
@@ -1483,7 +1483,7 @@ body.show-points .price-points {
 }
 
 @media (max-width: 768px) {
-  .theme-toggle { display: none; }
+  .navbar .theme-toggle { display: none; }
 }
 
 /* ===== LIGHT MODE OVERRIDES ===== */
@@ -1497,53 +1497,78 @@ html[data-theme] .mob-overlay-close {
   transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
-/* Body texture — reduce in light mode */
+/* Body texture — warm gold glow for light mode */
 [data-theme="light"] body::before {
-  opacity: 0.3;
+  background:
+    radial-gradient(ellipse 80% 60% at 20% 10%, rgba(201, 149, 42, 0.06), transparent),
+    radial-gradient(ellipse 60% 50% at 80% 80%, rgba(201, 149, 42, 0.04), transparent);
 }
 
-/* Activity banners */
+/* Hero pattern — keep subtle, don't hide */
+[data-theme="light"] .hero::before {
+  opacity: 0.5;
+}
+
+/* CTA button text — must stay dark on gold */
+[data-theme="light"] .cta,
+[data-theme="light"] .cta:hover {
+  color: #1c1917;
+}
+
+/* Countdown units — warm card feel */
+[data-theme="light"] .countdown-unit {
+  background: rgba(201, 149, 42, 0.06);
+  border-color: rgba(201, 149, 42, 0.15);
+}
+
+/* Info chips — warm tint */
+[data-theme="light"] .info-chip {
+  background: rgba(201, 149, 42, 0.06);
+  border-color: rgba(201, 149, 42, 0.12);
+}
+
+/* Activity banners — vibrant pastels */
 [data-theme="light"] .activity-banner.snow {
-  background: linear-gradient(135deg, #d0e4f7, #b8d4f0);
+  background: linear-gradient(135deg, #c4daf0, #a8c8e8);
 }
 [data-theme="light"] .activity-banner.golf {
-  background: linear-gradient(135deg, #c8e6d0, #a8d8b4);
+  background: linear-gradient(135deg, #b8dcc0, #98ccaa);
 }
 
-/* Timeline tag text colours — darken for light bg */
+/* Timeline tag text — darken for readability */
 [data-theme="light"] .tag-travel { color: #0c6ea8; }
 [data-theme="light"] .tag-snow { color: #5b48a0; }
 [data-theme="light"] .tag-golf { color: #1a7a3a; }
 [data-theme="light"] .tag-party { color: #a0521a; }
 
-/* Flight badges — darken text for light bg */
+/* Flight badges — darken text */
 [data-theme="light"] .badge-budget { color: #1a7a3a; }
 [data-theme="light"] .flight-direct-badge { color: #1a7a3a; }
 
-/* Hero snowboarder — filter for light mode */
+/* Hero snowboarder — invert filter for light bg */
 [data-theme="light"] .hero-boarder {
   filter: invert(0.85) hue-rotate(180deg);
   opacity: 0.4;
 }
 
-/* Hero snowflakes — dark particles on light bg */
+/* Hero snowflakes — golden dust particles */
 [data-theme="light"] .hero-snowfall .hs-flake {
-  background: rgba(0, 0, 0, 0.15);
+  background: rgba(180, 140, 60, 0.35);
 }
 
-/* Hero mountains */
-[data-theme="light"] .hero-mountains polygon:first-child { fill: #d0d0c8; }
-[data-theme="light"] .hero-mountains polygon:last-child { fill: #c0c0b8; }
+/* Hero mountains — warm taupe */
+[data-theme="light"] .hero-mountains polygon:first-child { fill: #d8d4c8; }
+[data-theme="light"] .hero-mountains polygon:last-child { fill: #ccc8bc; }
 
-/* Hero pattern overlay */
-[data-theme="light"] .hero::before {
-  opacity: 0;
-}
-
-/* Nav hover in light mode */
+/* Nav hover */
 [data-theme="light"] .nav-links a:hover,
 [data-theme="light"] .nav-links a.active {
   background: rgba(184, 146, 46, 0.12);
+}
+
+/* Price toggle active button text */
+[data-theme="light"] .price-toggle-btn.active {
+  color: #1c1917;
 }
 
 /* Scrollbar */
