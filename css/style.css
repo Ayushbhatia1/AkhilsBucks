@@ -1679,11 +1679,6 @@ html[data-theme] .mob-overlay-close {
   background: rgba(251, 146, 60, 0.06);
 }
 
-/* Scrollbar — light mode */
-[data-theme="light"] ::-webkit-scrollbar-track { background: var(--navy); }
-[data-theme="light"] ::-webkit-scrollbar-thumb { background: #c9c3b7; }
-[data-theme="light"] ::-webkit-scrollbar-thumb:hover { background: var(--gold); }
-
 /* ===== MODAL ===== */
 .modal-backdrop {
   display: none;
