@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Akhil Snowboarder — Component Demo</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #0a0e1a;
+      min-height: 100vh;
+      overflow: hidden;
+      font-family: 'Inter', sans-serif;
+    }
+    .demo-wrapper {
+      width: 100%;
+      height: 100vh;
+      position: relative;
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body>
+  <div class="demo-wrapper">
+    <div class="akhil-rider">
+
+      <style>
+        .akhil-rider {
+          position: relative;
+          width: 100%;
+          height: 100%;
+          overflow: hidden;
+          background: linear-gradient(170deg, #08101e 0%, #0e1a35 25%, #152848 50%, #1a3058 100%);
+        }
+
+        /* --- Sky glow --- */
+        .akhil-rider::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 30%;
+          width: 40%;
+          height: 40%;
+          background: radial-gradient(ellipse, rgba(180, 210, 255, 0.08), transparent 70%);
+          pointer-events: none;
+        }
+
+        /* --- Background layers --- */
+        .akhil-rider .ar-bg-layer {
+          position: absolute;
+          left: 0;
+          width: 100%;
+          pointer-events: none;
+        }
+        .akhil-rider .ar-mountains-far  { bottom: 38%; height: 45%; }
+        .akhil-rider .ar-mountains-mid  { bottom: 32%; height: 40%; }
+        .akhil-rider .ar-mountains-near { bottom: 28%; height: 35%; }
+        .akhil-rider .ar-slope          { bottom: 0;   height: 52%; }
+        .akhil-rider .ar-slope-detail   { bottom: 0;   height: 52%; }
+
+        /* --- Trees --- */
+        .akhil-rider .ar-trees {
+          position: absolute;
+          bottom: 26%;
+          left: 0;
+          width: 100%;
+          height: 20%;
+          pointer-events: none;
+        }
+
+        /* --- Snowboarder wrapper --- */
+        .akhil-rider .ar-boarder {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          animation: ar-ride 8s cubic-bezier(0.42, 0, 0.58, 1) infinite;
+          will-change: transform;
+        }
+
+        @keyframes ar-ride {
+          0%   { transform: translate(90%, 2%); }
+          100% { transform: translate(-25%, 62%); }
+        }
+
+        .akhil-rider .ar-boarder-inner {
+          position: absolute;
+          top: 0;
+          left: 0;
+          animation: ar-carve 1.6s ease-in-out infinite;
+          will-change: transform;
+        }
+
+        @keyframes ar-carve {
+          0%   { transform: translateX(-15px) rotate(-4deg); }
+          50%  { transform: translateX(15px) rotate(4deg); }
+          100% { transform: translateX(-15px) rotate(-4deg); }
+        }
+
+        .akhil-rider .ar-character {
+          width: 220px;
+          height: 280px;
+          filter: drop-shadow(0 4px 12px rgba(0,0,0,0.4));
+        }
+
+        /* --- Bounce on knees --- */
+        .akhil-rider .ar-body-bounce {
+          animation: ar-bounce 0.8s ease-in-out infinite;
+          transform-origin: 110px 260px;
+        }
+
+        @keyframes ar-bounce {
+          0%, 100% { transform: translateY(0); }
+          50%      { transform: translateY(-3px); }
+        }
+
+        /* --- Hair wind --- */
+        .akhil-rider .ar-hair-wind {
+          animation: ar-hair 0.5s ease-in-out infinite alternate;
+          transform-origin: 110px 50px;
+        }
+
+        @keyframes ar-hair {
+          0%   { transform: skewX(0deg) translateX(0); }
+          100% { transform: skewX(-8deg) translateX(-2px); }
+        }
+
+        /* --- Board edge tilt --- */
+        .akhil-rider .ar-board-tilt {
+          animation: ar-edge 1.6s ease-in-out infinite;
+          transform-origin: 110px 242px;
+        }
+
+        @keyframes ar-edge {
+          0%   { transform: rotate(-5deg) scaleY(0.95); }
+          50%  { transform: rotate(5deg) scaleY(1.05); }
+          100% { transform: rotate(-5deg) scaleY(0.95); }
+        }
+
+        /* --- Spray particles --- */
+        .akhil-rider .ar-spray-particle {
+          opacity: 0;
+          animation: ar-spray 0.9s ease-out infinite;
+        }
+        .akhil-rider .ar-spray-particle:nth-child(1)  { animation-delay: 0s; }
+        .akhil-rider .ar-spray-particle:nth-child(2)  { animation-delay: 0.08s; }
+        .akhil-rider .ar-spray-particle:nth-child(3)  { animation-delay: 0.16s; }
+        .akhil-rider .ar-spray-particle:nth-child(4)  { animation-delay: 0.24s; }
+        .akhil-rider .ar-spray-particle:nth-child(5)  { animation-delay: 0.32s; }
+        .akhil-rider .ar-spray-particle:nth-child(6)  { animation-delay: 0.40s; }
+        .akhil-rider .ar-spray-particle:nth-child(7)  { animation-delay: 0.48s; }
+        .akhil-rider .ar-spray-particle:nth-child(8)  { animation-delay: 0.56s; }
+        .akhil-rider .ar-spray-particle:nth-child(9)  { animation-delay: 0.64s; }
+        .akhil-rider .ar-spray-particle:nth-child(10) { animation-delay: 0.72s; }
+        .akhil-rider .ar-spray-particle:nth-child(11) { animation-delay: 0.12s; }
+        .akhil-rider .ar-spray-particle:nth-child(12) { animation-delay: 0.36s; }
+
+        @keyframes ar-spray {
+          0%   { opacity: 0.9; transform: translate(0, 0) scale(1); }
+          50%  { opacity: 0.5; }
+          100% { opacity: 0; transform: translate(var(--sx, 30px), var(--sy, -20px)) scale(0.2); }
+        }
+
+        /* --- Jacket flap --- */
+        .akhil-rider .ar-jacket-flap {
+          animation: ar-flap 0.6s ease-in-out infinite alternate;
+          transform-origin: 80px 140px;
+        }
+
+        @keyframes ar-flap {
+          0%   { transform: skewX(0deg); }
+          100% { transform: skewX(-2deg); }
+        }
+
+        /* --- Ambient snow --- */
+        .akhil-rider .ar-ambient-snow {
+          position: absolute;
+          inset: 0;
+          pointer-events: none;
+          overflow: hidden;
+        }
+
+        .akhil-rider .ar-snowflake {
+          position: absolute;
+          background: white;
+          border-radius: 50%;
+          animation: ar-fall linear infinite;
+          will-change: transform;
+        }
+
+        @keyframes ar-fall {
+          0%   { transform: translateY(-5px) translateX(0) rotate(0deg); opacity: 0; }
+          8%   { opacity: 1; }
+          92%  { opacity: 0.8; }
+          100% { transform: translateY(100vh) translateX(-60px) rotate(360deg); opacity: 0; }
+        }
+
+        /* --- Caption --- */
+        .akhil-rider .ar-caption {
+          position: absolute;
+          bottom: 2.5rem;
+          left: 50%;
+          transform: translateX(-50%);
+          color: rgba(255, 255, 255, 0.75);
+          font-family: 'Inter', -apple-system, sans-serif;
+          font-size: 0.9rem;
+          font-weight: 600;
+          letter-spacing: 0.12em;
+          text-transform: uppercase;
+          white-space: nowrap;
+          text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
+        }
+        .akhil-rider .ar-caption span {
+          color: #d4a843;
+        }
+      </style>
+
+      <!-- ====== BACKGROUND SCENE ====== -->
+
+      <!-- Far mountains -->
+      <svg class="ar-bg-layer ar-mountains-far" viewBox="0 0 1600 400" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <polygon fill="#0c1528" points="0,400 80,180 200,280 340,100 480,220 620,60 760,200 900,80 1040,190 1180,50 1320,160 1460,110 1600,200 1600,400"/>
+        <!-- Snow caps -->
+        <polygon fill="#1a2540" opacity="0.5" points="340,100 300,150 380,150"/>
+        <polygon fill="#1a2540" opacity="0.5" points="620,60 570,120 670,120"/>
+        <polygon fill="#1a2540" opacity="0.5" points="1180,50 1130,110 1230,110"/>
+      </svg>
+
+      <!-- Mid mountains -->
+      <svg class="ar-bg-layer ar-mountains-mid" viewBox="0 0 1600 350" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <polygon fill="#101d38" points="0,350 120,150 280,240 440,80 600,200 780,100 950,220 1100,60 1280,180 1440,120 1600,250 1600,350"/>
+        <!-- Snow caps -->
+        <polygon fill="#2a3d5e" opacity="0.4" points="440,80 400,130 480,130"/>
+        <polygon fill="#2a3d5e" opacity="0.4" points="1100,60 1050,120 1150,120"/>
+      </svg>
+
+      <!-- Near mountains with snow -->
+      <svg class="ar-bg-layer ar-mountains-near" viewBox="0 0 1600 300" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <polygon fill="#152540" points="0,300 200,100 350,200 500,50 700,180 900,30 1100,160 1300,80 1600,200 1600,300"/>
+        <!-- Snow on peaks -->
+        <polygon fill="#5a7a9e" opacity="0.3" points="500,50 450,110 550,110"/>
+        <polygon fill="#5a7a9e" opacity="0.3" points="900,30 840,100 960,100"/>
+      </svg>
+
+      <!-- Tree line -->
+      <svg class="ar-trees ar-bg-layer" viewBox="0 0 1600 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <g fill="#0e1e30" opacity="0.7">
+          <polygon points="50,200 70,60 90,200"/>
+          <polygon points="130,200 155,40 180,200"/>
+          <polygon points="240,200 260,70 280,200"/>
+          <polygon points="380,200 400,50 420,200"/>
+          <polygon points="500,200 520,65 540,200"/>
+          <polygon points="660,200 680,45 700,200"/>
+          <polygon points="800,200 825,55 850,200"/>
+          <polygon points="950,200 970,40 990,200"/>
+          <polygon points="1080,200 1100,60 1120,200"/>
+          <polygon points="1220,200 1245,50 1270,200"/>
+          <polygon points="1370,200 1390,65 1410,200"/>
+          <polygon points="1520,200 1540,45 1560,200"/>
+        </g>
+        <g fill="#0a1620" opacity="0.5">
+          <polygon points="90,200 115,80 140,200"/>
+          <polygon points="310,200 330,70 350,200"/>
+          <polygon points="450,200 470,55 490,200"/>
+          <polygon points="590,200 610,75 630,200"/>
+          <polygon points="740,200 760,50 780,200"/>
+          <polygon points="880,200 900,65 920,200"/>
+          <polygon points="1020,200 1040,55 1060,200"/>
+          <polygon points="1150,200 1170,70 1190,200"/>
+          <polygon points="1300,200 1320,45 1340,200"/>
+          <polygon points="1450,200 1470,60 1490,200"/>
+        </g>
+      </svg>
+
+      <!-- Snow slope -->
+      <svg class="ar-bg-layer ar-slope" viewBox="0 0 1600 600" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="ar-sg" x1="0" y1="0" x2="0.3" y2="1">
+            <stop offset="0" stop-color="#c8d8ec"/>
+            <stop offset="0.3" stop-color="#b4c8e0"/>
+            <stop offset="0.7" stop-color="#96aed0"/>
+            <stop offset="1" stop-color="#7a96b8"/>
+          </linearGradient>
+        </defs>
+        <polygon fill="url(#ar-sg)" points="0,150 500,0 1600,250 1600,600 0,600"/>
+      </svg>
+
+      <!-- Slope surface detail -->
+      <svg class="ar-bg-layer ar-slope-detail" viewBox="0 0 1600 600" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Groomed run lines -->
+        <line x1="0" y1="200" x2="1600" y2="500" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+        <line x1="0" y1="220" x2="1600" y2="520" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+        <line x1="0" y1="240" x2="1600" y2="540" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+        <line x1="0" y1="260" x2="1600" y2="560" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+        <line x1="0" y1="280" x2="1600" y2="580" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+        <!-- Light patches -->
+        <ellipse fill="rgba(255,255,255,0.06)" cx="400" cy="320" rx="120" ry="20"/>
+        <ellipse fill="rgba(255,255,255,0.05)" cx="900" cy="420" rx="150" ry="18"/>
+        <ellipse fill="rgba(255,255,255,0.04)" cx="1300" cy="500" rx="100" ry="14"/>
+        <!-- Shadow patches -->
+        <ellipse fill="rgba(0,0,0,0.04)" cx="600" cy="380" rx="80" ry="12"/>
+        <ellipse fill="rgba(0,0,0,0.03)" cx="1100" cy="460" rx="100" ry="15"/>
+      </svg>
+
+      <!-- Ambient snowflakes -->
+      <div class="ar-ambient-snow" id="ar-snow-container"></div>
+
+      <!-- ====== SNOWBOARDER ====== -->
+      <div class="ar-boarder">
+        <div class="ar-boarder-inner">
+          <svg class="ar-character" viewBox="0 0 220 280" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <!-- Skin -->
+              <linearGradient id="ar-skin" x1="0" y1="0" x2="0.2" y2="1">
+                <stop offset="0" stop-color="#b8844e"/>
+                <stop offset="1" stop-color="#9a6e3a"/>
+              </linearGradient>
+              <radialGradient id="ar-skin-face" cx="0.5" cy="0.4" r="0.5">
+                <stop offset="0" stop-color="#c49058"/>
+                <stop offset="1" stop-color="#a07540"/>
+              </radialGradient>
+              <!-- Jacket white -->
+              <linearGradient id="ar-jw" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#f5f5f5"/>
+                <stop offset="0.5" stop-color="#e8e8e8"/>
+                <stop offset="1" stop-color="#dcdcdc"/>
+              </linearGradient>
+              <!-- Jacket red -->
+              <linearGradient id="ar-jr" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#d43030"/>
+                <stop offset="1" stop-color="#b42020"/>
+              </linearGradient>
+              <!-- Board -->
+              <linearGradient id="ar-brd" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0" stop-color="#111"/>
+                <stop offset="0.15" stop-color="#1a1a1a"/>
+                <stop offset="0.3" stop-color="#1f7a3a"/>
+                <stop offset="0.5" stop-color="#2ca84e"/>
+                <stop offset="0.7" stop-color="#1f7a3a"/>
+                <stop offset="0.85" stop-color="#1a1a1a"/>
+                <stop offset="1" stop-color="#111"/>
+              </linearGradient>
+              <!-- Board top shine -->
+              <linearGradient id="ar-brd-shine" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="rgba(255,255,255,0.25)"/>
+                <stop offset="1" stop-color="rgba(255,255,255,0)"/>
+              </linearGradient>
+              <!-- Pants -->
+              <linearGradient id="ar-pants" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#1a1a1a"/>
+                <stop offset="1" stop-color="#111"/>
+              </linearGradient>
+            </defs>
+
+            <g class="ar-body-bounce">
+
+              <!-- ===== SHADOW ===== -->
+              <ellipse cx="110" cy="262" rx="50" ry="8" fill="rgba(0,0,0,0.15)"/>
+
+              <!-- ===== BOARD ===== -->
+              <g class="ar-board-tilt">
+                <!-- Board body -->
+                <rect x="30" y="248" width="160" height="14" rx="7" fill="url(#ar-brd)"/>
+                <!-- Top shine -->
+                <rect x="30" y="248" width="160" height="7" rx="7" fill="url(#ar-brd-shine)"/>
+                <!-- Edge highlight -->
+                <rect x="30" y="260" width="160" height="2" rx="1" fill="rgba(255,255,255,0.1)"/>
+                <!-- Burton logo area -->
+                <rect x="86" y="252" width="28" height="4" rx="2" fill="rgba(255,255,255,0.15)"/>
+                <!-- Bindings -->
+                <g>
+                  <!-- Left binding -->
+                  <rect x="72" y="244" width="18" height="8" rx="3" fill="#222"/>
+                  <rect x="74" y="244" width="14" height="3" rx="1.5" fill="#333"/>
+                  <rect x="76" y="248" width="10" height="4" rx="1" fill="#2a2a2a"/>
+                  <!-- Right binding -->
+                  <rect x="120" y="244" width="18" height="8" rx="3" fill="#222"/>
+                  <rect x="122" y="244" width="14" height="3" rx="1.5" fill="#333"/>
+                  <rect x="124" y="248" width="10" height="4" rx="1" fill="#2a2a2a"/>
+                </g>
+                <!-- Board nose/tail curve details -->
+                <ellipse cx="35" cy="255" rx="6" ry="7" fill="#111"/>
+                <ellipse cx="185" cy="255" rx="6" ry="7" fill="#111"/>
+
+                <!-- ===== SNOW SPRAY ===== -->
+                <g>
+                  <circle class="ar-spray-particle" cx="190" cy="252" r="4" fill="white" style="--sx:35px;--sy:-25px"/>
+                  <circle class="ar-spray-particle" cx="188" cy="256" r="3.5" fill="white" style="--sx:40px;--sy:-15px"/>
+                  <circle class="ar-spray-particle" cx="192" cy="248" r="3" fill="white" style="--sx:30px;--sy:-30px"/>
+                  <circle class="ar-spray-particle" cx="186" cy="260" r="2.5" fill="white" style="--sx:45px;--sy:-10px"/>
+                  <circle class="ar-spray-particle" cx="194" cy="254" r="2" fill="rgba(220,235,255,0.9)" style="--sx:50px;--sy:-20px"/>
+                  <circle class="ar-spray-particle" cx="184" cy="250" r="3" fill="white" style="--sx:25px;--sy:-28px"/>
+                  <circle class="ar-spray-particle" cx="196" cy="258" r="2.5" fill="rgba(220,235,255,0.8)" style="--sx:42px;--sy:-8px"/>
+                  <circle class="ar-spray-particle" cx="190" cy="246" r="2" fill="white" style="--sx:35px;--sy:-35px"/>
+                  <circle class="ar-spray-particle" cx="182" cy="254" r="3.5" fill="rgba(220,235,255,0.85)" style="--sx:38px;--sy:-18px"/>
+                  <circle class="ar-spray-particle" cx="198" cy="250" r="1.8" fill="white" style="--sx:48px;--sy:-25px"/>
+                  <circle class="ar-spray-particle" cx="188" cy="262" r="2.8" fill="rgba(220,235,255,0.7)" style="--sx:32px;--sy:-5px"/>
+                  <circle class="ar-spray-particle" cx="195" cy="244" r="2.2" fill="white" style="--sx:28px;--sy:-38px"/>
+                </g>
+              </g>
+
+              <!-- ===== BOOTS ===== -->
+              <path d="M70,232 L68,244 Q68,248 74,248 L92,248 Q96,248 96,244 L94,232 Z" fill="#1a1a1a"/>
+              <path d="M118,232 L116,244 Q116,248 122,248 L140,248 Q144,248 144,244 L142,232 Z" fill="#1a1a1a"/>
+              <!-- Boot details -->
+              <rect x="70" y="236" width="24" height="2" rx="1" fill="#2a2a2a"/>
+              <rect x="120" y="236" width="22" height="2" rx="1" fill="#2a2a2a"/>
+              <!-- Laces -->
+              <line x1="78" y1="233" x2="86" y2="233" stroke="#333" stroke-width="1"/>
+              <line x1="126" y1="233" x2="134" y2="233" stroke="#333" stroke-width="1"/>
+
+              <!-- ===== LEGS (crouched snowboard stance) ===== -->
+              <!-- Left leg -->
+              <path d="M82,172 Q76,200 74,220 L70,232 L94,232 L90,220 Q88,200 92,172 Z" fill="url(#ar-pants)"/>
+              <!-- Right leg -->
+              <path d="M118,172 Q114,200 116,220 L118,232 L142,232 L138,220 Q136,200 130,172 Z" fill="url(#ar-pants)"/>
+              <!-- Knee highlights -->
+              <ellipse cx="82" cy="198" rx="8" ry="5" fill="rgba(255,255,255,0.04)"/>
+              <ellipse cx="130" cy="198" rx="8" ry="5" fill="rgba(255,255,255,0.04)"/>
+              <!-- Pant seam -->
+              <line x1="82" y1="175" x2="80" y2="230" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/>
+              <line x1="126" y1="175" x2="128" y2="230" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/>
+
+              <!-- ===== TORSO / JACKET ===== -->
+              <g class="ar-jacket-flap">
+                <!-- Main body: white -->
+                <path d="M72,100 Q70,98 70,104 L66,170 Q66,176 72,176 L140,176 Q146,176 146,170 L150,104 Q150,98 148,100 Z" fill="url(#ar-jw)"/>
+
+                <!-- Shoulder/yoke: red -->
+                <path d="M72,100 Q72,90 82,88 L132,88 Q142,90 148,100 L150,118 L70,118 Z" fill="url(#ar-jr)"/>
+
+                <!-- Black trim band -->
+                <rect x="70" y="116" width="80" height="4" rx="1" fill="#1a1a1a" opacity="0.8"/>
+
+                <!-- Zipper -->
+                <rect x="109" y="88" width="2.5" height="88" rx="1" fill="#a0a0a0"/>
+                <rect x="108" y="88" width="4.5" height="88" rx="1" fill="#888" opacity="0.3"/>
+                <!-- Zipper pull -->
+                <rect x="108" y="130" width="5" height="6" rx="2" fill="#bbb"/>
+
+                <!-- Chest pockets -->
+                <path d="M78,122 L102,122 L100,136 L80,136 Z" fill="rgba(0,0,0,0.06)" stroke="rgba(0,0,0,0.1)" stroke-width="0.5"/>
+                <path d="M118,122 L140,122 L138,136 L120,136 Z" fill="rgba(0,0,0,0.06)" stroke="rgba(0,0,0,0.1)" stroke-width="0.5"/>
+                <!-- Pocket flaps -->
+                <rect x="78" y="121" width="24" height="4" rx="1" fill="rgba(0,0,0,0.08)"/>
+                <rect x="118" y="121" width="22" height="4" rx="1" fill="rgba(0,0,0,0.08)"/>
+
+                <!-- Lower jacket ribbing -->
+                <rect x="66" y="168" width="80" height="8" rx="2" fill="rgba(0,0,0,0.08)"/>
+
+                <!-- Shoulder seams -->
+                <line x1="72" y1="100" x2="70" y2="118" stroke="rgba(0,0,0,0.08)" stroke-width="1"/>
+                <line x1="148" y1="100" x2="150" y2="118" stroke="rgba(0,0,0,0.08)" stroke-width="1"/>
+
+                <!-- Side panel: black accent -->
+                <path d="M66,120 L72,120 L70,170 L66,170 Z" fill="rgba(0,0,0,0.15)"/>
+                <path d="M146,120 L150,120 L150,170 L146,170 Z" fill="rgba(0,0,0,0.15)"/>
+              </g>
+
+              <!-- ===== ARMS ===== -->
+              <!-- Left arm (reaching forward for balance) -->
+              <g>
+                <!-- Upper arm: red -->
+                <path d="M72,98 L46,108 Q40,110 42,116 L50,118 Q56,116 72,112 Z" fill="url(#ar-jr)"/>
+                <!-- Forearm: white -->
+                <path d="M42,108 L18,96 Q14,94 14,100 L16,106 Q18,110 42,116 Z" fill="url(#ar-jw)"/>
+                <!-- Cuff -->
+                <rect x="14" y="94" width="12" height="5" rx="2" fill="#1a1a1a" transform="rotate(-15, 20, 97)"/>
+                <!-- Glove -->
+                <ellipse cx="14" cy="94" rx="8" ry="6" fill="#1a1a1a" transform="rotate(-10, 14, 94)"/>
+                <path d="M8,90 Q6,86 10,86 L14,88" fill="#1a1a1a"/>
+              </g>
+
+              <!-- Right arm (back for balance) -->
+              <g>
+                <!-- Upper arm: red -->
+                <path d="M148,98 L172,108 Q178,110 176,116 L168,118 Q162,116 148,112 Z" fill="url(#ar-jr)"/>
+                <!-- Forearm: white -->
+                <path d="M176,108 L198,100 Q202,98 202,104 L200,108 Q198,112 176,116 Z" fill="url(#ar-jw)"/>
+                <!-- Cuff -->
+                <rect x="192" y="96" width="12" height="5" rx="2" fill="#1a1a1a" transform="rotate(15, 198, 99)"/>
+                <!-- Glove -->
+                <ellipse cx="202" cy="98" rx="8" ry="6" fill="#1a1a1a" transform="rotate(10, 202, 98)"/>
+                <path d="M208,94 Q210,90 206,90 L202,92" fill="#1a1a1a"/>
+              </g>
+
+              <!-- ===== NECK ===== -->
+              <rect x="96" y="74" width="28" height="18" rx="6" fill="url(#ar-skin)"/>
+              <!-- Neck gaiter / buff -->
+              <path d="M90,82 Q90,78 96,78 L124,78 Q130,78 130,82 L130,90 Q130,92 124,92 L96,92 Q90,92 90,90 Z" fill="#1a1a1a"/>
+              <path d="M92,84 L128,84" stroke="#2a2a2a" stroke-width="0.5"/>
+              <path d="M92,86 L128,86" stroke="#2a2a2a" stroke-width="0.5"/>
+              <path d="M92,88 L128,88" stroke="#2a2a2a" stroke-width="0.5"/>
+
+              <!-- ===== HEAD ===== -->
+              <g class="ar-hair-wind">
+                <!-- Head shape -->
+                <ellipse cx="110" cy="52" rx="28" ry="32" fill="url(#ar-skin-face)"/>
+
+                <!-- Ear left -->
+                <ellipse cx="82" cy="55" rx="5" ry="7" fill="url(#ar-skin)"/>
+                <ellipse cx="83" cy="55" rx="3" ry="5" fill="#9a6e3a"/>
+                <!-- Ear right -->
+                <ellipse cx="138" cy="55" rx="5" ry="7" fill="url(#ar-skin)"/>
+                <ellipse cx="137" cy="55" rx="3" ry="5" fill="#9a6e3a"/>
+
+                <!-- ===== HAIR ===== -->
+                <!-- Base hair volume -->
+                <ellipse cx="110" cy="28" rx="28" ry="14" fill="#0e0e0e"/>
+                <!-- Side hair -->
+                <path d="M82,40 Q80,28 86,20 Q92,14 110,14 Q128,14 134,20 Q140,28 138,40" fill="#111"/>
+                <!-- Top swept volume -->
+                <path d="M86,24 Q90,8 110,10 Q130,8 134,24 Q130,16 110,15 Q90,16 86,24 Z" fill="#0a0a0a"/>
+                <!-- Wind-blown strands going left -->
+                <path d="M86,22 Q78,14 72,18 Q76,12 86,16 Z" fill="#0e0e0e"/>
+                <path d="M90,18 Q82,10 76,14 Q80,8 90,14 Z" fill="#111"/>
+                <path d="M96,16 Q86,8 80,12 Q88,4 96,12 Z" fill="#0a0a0a"/>
+                <!-- Hair texture highlights -->
+                <path d="M100,16 Q110,12 120,16" stroke="rgba(255,255,255,0.06)" stroke-width="1" fill="none"/>
+                <path d="M95,20 Q110,15 125,20" stroke="rgba(255,255,255,0.04)" stroke-width="1" fill="none"/>
+
+                <!-- ===== GOGGLES (pushed up on forehead) ===== -->
+                <!-- Strap -->
+                <path d="M80,30 Q76,28 74,32" stroke="#e85d20" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                <path d="M140,30 Q144,28 146,32" stroke="#e85d20" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                <!-- Frame -->
+                <rect x="82" y="28" width="56" height="14" rx="7" fill="#e85d20"/>
+                <!-- Left lens -->
+                <rect x="85" y="30" width="22" height="10" rx="5" fill="#222"/>
+                <rect x="87" y="31" width="8" height="4" rx="2" fill="rgba(255,255,255,0.2)"/>
+                <!-- Right lens -->
+                <rect x="113" y="30" width="22" height="10" rx="5" fill="#222"/>
+                <rect x="115" y="31" width="8" height="4" rx="2" fill="rgba(255,255,255,0.2)"/>
+                <!-- Bridge -->
+                <rect x="107" y="33" width="6" height="5" rx="2" fill="#e85d20"/>
+                <!-- Frame top detail -->
+                <rect x="84" y="28" width="52" height="3" rx="1.5" fill="#f07030" opacity="0.6"/>
+
+                <!-- ===== FACE ===== -->
+                <!-- Forehead highlight -->
+                <ellipse cx="110" cy="38" rx="16" ry="4" fill="rgba(255,255,255,0.06)"/>
+
+                <!-- Eyebrows (excited / raised) -->
+                <path d="M92,44 Q98,40 106,43" stroke="#1a1212" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                <path d="M114,43 Q122,40 128,44" stroke="#1a1212" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+
+                <!-- Eyes -->
+                <!-- Left eye -->
+                <ellipse cx="100" cy="50" rx="6" ry="5.5" fill="white"/>
+                <ellipse cx="101" cy="50" rx="4" ry="4.5" fill="#1a1212"/>
+                <circle cx="102.5" cy="48.5" r="1.5" fill="white"/>
+                <circle cx="99" cy="51" r="0.8" fill="rgba(255,255,255,0.4)"/>
+                <!-- Right eye -->
+                <ellipse cx="120" cy="50" rx="6" ry="5.5" fill="white"/>
+                <ellipse cx="121" cy="50" rx="4" ry="4.5" fill="#1a1212"/>
+                <circle cx="122.5" cy="48.5" r="1.5" fill="white"/>
+                <circle cx="119" cy="51" r="0.8" fill="rgba(255,255,255,0.4)"/>
+
+                <!-- Nose -->
+                <path d="M108,54 Q110,60 106,62 Q110,64 114,62 Q110,60 112,54" fill="none" stroke="#8a6030" stroke-width="1.2" stroke-linecap="round"/>
+                <!-- Nose highlight -->
+                <ellipse cx="110" cy="56" rx="2" ry="1.5" fill="rgba(255,255,255,0.08)"/>
+
+                <!-- ===== THE BIG SMILE ===== -->
+                <!-- Mouth outline -->
+                <path d="M94,66 Q100,78 110,80 Q120,78 126,66" stroke="#1a1212" stroke-width="2" fill="#fff" stroke-linecap="round"/>
+                <!-- Teeth -->
+                <clipPath id="ar-mouth-clip">
+                  <path d="M94,66 Q100,78 110,80 Q120,78 126,66 Z"/>
+                </clipPath>
+                <g clip-path="url(#ar-mouth-clip)">
+                  <!-- Upper teeth -->
+                  <rect x="96" y="66" width="28" height="8" fill="white"/>
+                  <!-- Tooth lines -->
+                  <line x1="100" y1="66" x2="100" y2="73" stroke="rgba(0,0,0,0.06)" stroke-width="0.5"/>
+                  <line x1="106" y1="66" x2="106" y2="74" stroke="rgba(0,0,0,0.06)" stroke-width="0.5"/>
+                  <line x1="110" y1="66" x2="110" y2="74" stroke="rgba(0,0,0,0.06)" stroke-width="0.5"/>
+                  <line x1="114" y1="66" x2="114" y2="74" stroke="rgba(0,0,0,0.06)" stroke-width="0.5"/>
+                  <line x1="120" y1="66" x2="120" y2="73" stroke="rgba(0,0,0,0.06)" stroke-width="0.5"/>
+                  <!-- Tongue / inner mouth -->
+                  <ellipse cx="110" cy="80" rx="10" ry="6" fill="#c44040"/>
+                  <ellipse cx="110" cy="78" rx="8" ry="4" fill="#d44848"/>
+                </g>
+
+                <!-- Dimples -->
+                <path d="M92,70 Q90,72 92,74" stroke="#9a6e3a" stroke-width="1" fill="none" opacity="0.4"/>
+                <path d="M128,70 Q130,72 128,74" stroke="#9a6e3a" stroke-width="1" fill="none" opacity="0.4"/>
+
+                <!-- Cheek flush (stoked from cold/fun) -->
+                <ellipse cx="88" cy="64" rx="6" ry="4" fill="#cc7850" opacity="0.25"/>
+                <ellipse cx="132" cy="64" rx="6" ry="4" fill="#cc7850" opacity="0.25"/>
+
+                <!-- Laugh lines -->
+                <path d="M92,62 Q90,66 92,68" stroke="rgba(0,0,0,0.06)" stroke-width="0.5" fill="none"/>
+                <path d="M128,62 Q130,66 128,68" stroke="rgba(0,0,0,0.06)" stroke-width="0.5" fill="none"/>
+
+                <!-- Jaw definition -->
+                <path d="M84,65 Q86,76 100,82" stroke="rgba(0,0,0,0.05)" stroke-width="0.5" fill="none"/>
+                <path d="M136,65 Q134,76 120,82" stroke="rgba(0,0,0,0.05)" stroke-width="0.5" fill="none"/>
+              </g>
+            </g>
+          </svg>
+        </div>
+      </div>
+
+      <div class="ar-caption"><span>Akhil</span> &mdash; "I've done this before, bro. Trust me."</div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      var c = document.getElementById('ar-snow-container');
+      if (!c) return;
+      for (var i = 0; i < 50; i++) {
+        var f = document.createElement('div');
+        f.className = 'ar-snowflake';
+        f.style.left = Math.random() * 100 + '%';
+        var size = 1.5 + Math.random() * 3;
+        f.style.width = size + 'px';
+        f.style.height = size + 'px';
+        f.style.animationDuration = (4 + Math.random() * 6) + 's';
+        f.style.animationDelay = (Math.random() * 8) + 's';
+        f.style.opacity = (0.2 + Math.random() * 0.5).toString();
+        c.appendChild(f);
+      }
+    })();
+  </script>
+</body>
+</html>

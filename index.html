@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Akhil's Bucks Trip — Queenstown 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="navbar">
+    <a href="index.html" class="nav-brand">Akhil's Bucks <span>Queenstown '26</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="schedule.html">Schedule</a></li>
+      <li><a href="crew.html">The Crew</a></li>
+      <li><a href="activities.html">Activities</a></li>
+      <li><a href="flights.html">Flights</a></li>
+    </ul>
+  </nav>
+
+  <!-- Mobile nav -->
+  <button class="mob-hamburger" id="mob-hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+  <div class="mob-overlay" id="mob-overlay">
+    <button class="mob-overlay-close" id="mob-close" aria-label="Close menu">&times;</button>
+    <a href="index.html">Home</a>
+    <a href="schedule.html">Schedule</a>
+    <a href="crew.html">The Crew</a>
+    <a href="activities.html">Activities</a>
+    <a href="flights.html">Flights</a>
+  </div>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+
+      <!-- SNOWFALL -->
+      <div class="hero-snowfall" id="hero-snow-container"></div>
+
+      <!-- SNOWBOARDER -->
+      <div class="hero-boarder">
+        <div class="hb-rider">
+          <div class="hb-inner">
+            <div class="hb-speech">Boys, I've done this before</div>
+            <svg class="hb-svg" viewBox="0 0 220 280" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="hb-skin" x1="0" y1="0" x2="0.2" y2="1"><stop offset="0" stop-color="#b8844e"/><stop offset="1" stop-color="#9a6e3a"/></linearGradient>
+                <radialGradient id="hb-face" cx="0.5" cy="0.4" r="0.5"><stop offset="0" stop-color="#c49058"/><stop offset="1" stop-color="#a07540"/></radialGradient>
+                <linearGradient id="hb-jw" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f5f5f5"/><stop offset=".5" stop-color="#e8e8e8"/><stop offset="1" stop-color="#dcdcdc"/></linearGradient>
+                <linearGradient id="hb-jr" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d43030"/><stop offset="1" stop-color="#b42020"/></linearGradient>
+                <linearGradient id="hb-brd" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#111"/><stop offset=".15" stop-color="#1a1a1a"/><stop offset=".3" stop-color="#1f7a3a"/><stop offset=".5" stop-color="#2ca84e"/><stop offset=".7" stop-color="#1f7a3a"/><stop offset=".85" stop-color="#1a1a1a"/><stop offset="1" stop-color="#111"/></linearGradient>
+                <linearGradient id="hb-bs" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="rgba(255,255,255,0.25)"/><stop offset="1" stop-color="rgba(255,255,255,0)"/></linearGradient>
+                <linearGradient id="hb-pnt" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1a1a1a"/><stop offset="1" stop-color="#111"/></linearGradient>
+              </defs>
+              <g class="hb-bounce">
+                <ellipse cx="110" cy="262" rx="50" ry="8" fill="rgba(0,0,0,0.15)"/>
+                <g class="hb-board-tilt">
+                  <rect x="30" y="248" width="160" height="14" rx="7" fill="url(#hb-brd)"/>
+                  <rect x="30" y="248" width="160" height="7" rx="7" fill="url(#hb-bs)"/>
+                  <rect x="30" y="260" width="160" height="2" rx="1" fill="rgba(255,255,255,0.1)"/>
+                  <rect x="86" y="252" width="28" height="4" rx="2" fill="rgba(255,255,255,0.15)"/>
+                  <rect x="72" y="244" width="18" height="8" rx="3" fill="#222"/><rect x="74" y="244" width="14" height="3" rx="1.5" fill="#333"/>
+                  <rect x="120" y="244" width="18" height="8" rx="3" fill="#222"/><rect x="122" y="244" width="14" height="3" rx="1.5" fill="#333"/>
+                  <ellipse cx="35" cy="255" rx="6" ry="7" fill="#111"/><ellipse cx="185" cy="255" rx="6" ry="7" fill="#111"/>
+                  <g>
+                    <circle class="hb-spray" cx="190" cy="252" r="4" fill="white" style="--sx:35px;--sy:-25px"/>
+                    <circle class="hb-spray" cx="188" cy="256" r="3.5" fill="white" style="--sx:40px;--sy:-15px"/>
+                    <circle class="hb-spray" cx="192" cy="248" r="3" fill="white" style="--sx:30px;--sy:-30px"/>
+                    <circle class="hb-spray" cx="186" cy="260" r="2.5" fill="white" style="--sx:45px;--sy:-10px"/>
+                    <circle class="hb-spray" cx="194" cy="254" r="2" fill="rgba(220,235,255,0.9)" style="--sx:50px;--sy:-20px"/>
+                    <circle class="hb-spray" cx="184" cy="250" r="3" fill="white" style="--sx:25px;--sy:-28px"/>
+                    <circle class="hb-spray" cx="196" cy="258" r="2.5" fill="rgba(220,235,255,0.8)" style="--sx:42px;--sy:-8px"/>
+                    <circle class="hb-spray" cx="190" cy="246" r="2" fill="white" style="--sx:35px;--sy:-35px"/>
+                    <circle class="hb-spray" cx="182" cy="254" r="3.5" fill="rgba(220,235,255,0.85)" style="--sx:38px;--sy:-18px"/>
+                    <circle class="hb-spray" cx="198" cy="250" r="1.8" fill="white" style="--sx:48px;--sy:-25px"/>
+                    <circle class="hb-spray" cx="188" cy="262" r="2.8" fill="rgba(220,235,255,0.7)" style="--sx:32px;--sy:-5px"/>
+                    <circle class="hb-spray" cx="195" cy="244" r="2.2" fill="white" style="--sx:28px;--sy:-38px"/>
+                  </g>
+                </g>
+                <path d="M70,232 L68,244 Q68,248 74,248 L92,248 Q96,248 96,244 L94,232 Z" fill="#1a1a1a"/>
+                <path d="M118,232 L116,244 Q116,248 122,248 L140,248 Q144,248 144,244 L142,232 Z" fill="#1a1a1a"/>
+                <rect x="70" y="236" width="24" height="2" rx="1" fill="#2a2a2a"/><rect x="120" y="236" width="22" height="2" rx="1" fill="#2a2a2a"/>
+                <path d="M82,172 Q76,200 74,220 L70,232 L94,232 L90,220 Q88,200 92,172 Z" fill="url(#hb-pnt)"/>
+                <path d="M118,172 Q114,200 116,220 L118,232 L142,232 L138,220 Q136,200 130,172 Z" fill="url(#hb-pnt)"/>
+                <g class="hb-jacket-flap">
+                  <path d="M72,100 Q70,98 70,104 L66,170 Q66,176 72,176 L140,176 Q146,176 146,170 L150,104 Q150,98 148,100 Z" fill="url(#hb-jw)"/>
+                  <path d="M72,100 Q72,90 82,88 L132,88 Q142,90 148,100 L150,118 L70,118 Z" fill="url(#hb-jr)"/>
+                  <rect x="70" y="116" width="80" height="4" rx="1" fill="#1a1a1a" opacity="0.8"/>
+                  <rect x="109" y="88" width="2.5" height="88" rx="1" fill="#a0a0a0"/>
+                  <rect x="108" y="130" width="5" height="6" rx="2" fill="#bbb"/>
+                  <path d="M78,122 L102,122 L100,136 L80,136 Z" fill="rgba(0,0,0,0.06)" stroke="rgba(0,0,0,0.1)" stroke-width="0.5"/>
+                  <path d="M118,122 L140,122 L138,136 L120,136 Z" fill="rgba(0,0,0,0.06)" stroke="rgba(0,0,0,0.1)" stroke-width="0.5"/>
+                  <rect x="66" y="168" width="80" height="8" rx="2" fill="rgba(0,0,0,0.08)"/>
+                  <path d="M66,120 L72,120 L70,170 L66,170 Z" fill="rgba(0,0,0,0.15)"/>
+                  <path d="M146,120 L150,120 L150,170 L146,170 Z" fill="rgba(0,0,0,0.15)"/>
+                </g>
+                <g>
+                  <path d="M72,98 L46,108 Q40,110 42,116 L50,118 Q56,116 72,112 Z" fill="url(#hb-jr)"/>
+                  <path d="M42,108 L18,96 Q14,94 14,100 L16,106 Q18,110 42,116 Z" fill="url(#hb-jw)"/>
+                  <rect x="14" y="94" width="12" height="5" rx="2" fill="#1a1a1a" transform="rotate(-15, 20, 97)"/>
+                  <ellipse cx="14" cy="94" rx="8" ry="6" fill="#1a1a1a" transform="rotate(-10, 14, 94)"/>
+                  <path d="M8,90 Q6,86 10,86 L14,88" fill="#1a1a1a"/>
+                </g>
+                <g>
+                  <path d="M148,98 L172,108 Q178,110 176,116 L168,118 Q162,116 148,112 Z" fill="url(#hb-jr)"/>
+                  <path d="M176,108 L198,100 Q202,98 202,104 L200,108 Q198,112 176,116 Z" fill="url(#hb-jw)"/>
+                  <rect x="192" y="96" width="12" height="5" rx="2" fill="#1a1a1a" transform="rotate(15, 198, 99)"/>
+                  <ellipse cx="202" cy="98" rx="8" ry="6" fill="#1a1a1a" transform="rotate(10, 202, 98)"/>
+                  <path d="M208,94 Q210,90 206,90 L202,92" fill="#1a1a1a"/>
+                </g>
+                <rect x="96" y="74" width="28" height="18" rx="6" fill="url(#hb-skin)"/>
+                <path d="M90,82 Q90,78 96,78 L124,78 Q130,78 130,82 L130,90 Q130,92 124,92 L96,92 Q90,92 90,90 Z" fill="#1a1a1a"/>
+                <g class="hb-hair">
+                  <ellipse cx="110" cy="52" rx="28" ry="32" fill="url(#hb-face)"/>
+                  <ellipse cx="82" cy="55" rx="5" ry="7" fill="url(#hb-skin)"/><ellipse cx="83" cy="55" rx="3" ry="5" fill="#9a6e3a"/>
+                  <ellipse cx="138" cy="55" rx="5" ry="7" fill="url(#hb-skin)"/><ellipse cx="137" cy="55" rx="3" ry="5" fill="#9a6e3a"/>
+                  <ellipse cx="110" cy="28" rx="28" ry="14" fill="#0e0e0e"/>
+                  <path d="M82,40 Q80,28 86,20 Q92,14 110,14 Q128,14 134,20 Q140,28 138,40" fill="#111"/>
+                  <path d="M86,24 Q90,8 110,10 Q130,8 134,24 Q130,16 110,15 Q90,16 86,24 Z" fill="#0a0a0a"/>
+                  <path d="M86,22 Q78,14 72,18 Q76,12 86,16 Z" fill="#0e0e0e"/>
+                  <path d="M90,18 Q82,10 76,14 Q80,8 90,14 Z" fill="#111"/>
+                  <path d="M96,16 Q86,8 80,12 Q88,4 96,12 Z" fill="#0a0a0a"/>
+                  <path d="M80,30 Q76,28 74,32" stroke="#e85d20" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                  <path d="M140,30 Q144,28 146,32" stroke="#e85d20" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                  <rect x="82" y="28" width="56" height="14" rx="7" fill="#e85d20"/>
+                  <rect x="85" y="30" width="22" height="10" rx="5" fill="#222"/><rect x="87" y="31" width="8" height="4" rx="2" fill="rgba(255,255,255,0.2)"/>
+                  <rect x="113" y="30" width="22" height="10" rx="5" fill="#222"/><rect x="115" y="31" width="8" height="4" rx="2" fill="rgba(255,255,255,0.2)"/>
+                  <rect x="107" y="33" width="6" height="5" rx="2" fill="#e85d20"/>
+                  <rect x="84" y="28" width="52" height="3" rx="1.5" fill="#f07030" opacity="0.6"/>
+                  <path d="M92,44 Q98,40 106,43" stroke="#1a1212" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                  <path d="M114,43 Q122,40 128,44" stroke="#1a1212" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                  <ellipse cx="100" cy="50" rx="6" ry="5.5" fill="white"/><ellipse cx="101" cy="50" rx="4" ry="4.5" fill="#1a1212"/><circle cx="102.5" cy="48.5" r="1.5" fill="white"/>
+                  <ellipse cx="120" cy="50" rx="6" ry="5.5" fill="white"/><ellipse cx="121" cy="50" rx="4" ry="4.5" fill="#1a1212"/><circle cx="122.5" cy="48.5" r="1.5" fill="white"/>
+                  <path d="M108,54 Q110,60 106,62 Q110,64 114,62 Q110,60 112,54" fill="none" stroke="#8a6030" stroke-width="1.2" stroke-linecap="round"/>
+                  <path d="M94,66 Q100,78 110,80 Q120,78 126,66" stroke="#1a1212" stroke-width="2" fill="#fff" stroke-linecap="round"/>
+                  <clipPath id="hb-mouth"><path d="M94,66 Q100,78 110,80 Q120,78 126,66 Z"/></clipPath>
+                  <g clip-path="url(#hb-mouth)">
+                    <rect x="96" y="66" width="28" height="8" fill="white"/>
+                    <line x1="100" y1="66" x2="100" y2="73" stroke="rgba(0,0,0,0.06)" stroke-width="0.5"/>
+                    <line x1="106" y1="66" x2="106" y2="74" stroke="rgba(0,0,0,0.06)" stroke-width="0.5"/>
+                    <line x1="110" y1="66" x2="110" y2="74" stroke="rgba(0,0,0,0.06)" stroke-width="0.5"/>
+                    <line x1="114" y1="66" x2="114" y2="74" stroke="rgba(0,0,0,0.06)" stroke-width="0.5"/>
+                    <line x1="120" y1="66" x2="120" y2="73" stroke="rgba(0,0,0,0.06)" stroke-width="0.5"/>
+                    <ellipse cx="110" cy="80" rx="10" ry="6" fill="#c44040"/><ellipse cx="110" cy="78" rx="8" ry="4" fill="#d44848"/>
+                  </g>
+                  <ellipse cx="88" cy="64" rx="6" ry="4" fill="#cc7850" opacity="0.25"/>
+                  <ellipse cx="132" cy="64" rx="6" ry="4" fill="#cc7850" opacity="0.25"/>
+                  <path d="M92,70 Q90,72 92,74" stroke="#9a6e3a" stroke-width="1" fill="none" opacity="0.4"/>
+                  <path d="M128,70 Q130,72 128,74" stroke="#9a6e3a" stroke-width="1" fill="none" opacity="0.4"/>
+                </g>
+              </g>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-eyebrow">Bucks Trip 2026</div>
+      <h1>
+        <span class="gold">Akhil's</span>
+        Last Ride
+      </h1>
+      <p class="hero-subtitle">Queenstown, New Zealand &mdash; Pray for him.</p>
+      <p class="hero-dates">13 — 18 August 2026</p>
+
+      <!-- COUNTDOWN -->
+      <div class="countdown">
+        <div class="countdown-unit">
+          <span class="countdown-number" id="cd-days">--</span>
+          <span class="countdown-label">Days</span>
+        </div>
+        <div class="countdown-unit">
+          <span class="countdown-number" id="cd-hours">--</span>
+          <span class="countdown-label">Hours</span>
+        </div>
+        <div class="countdown-unit">
+          <span class="countdown-number" id="cd-minutes">--</span>
+          <span class="countdown-label">Minutes</span>
+        </div>
+        <div class="countdown-unit">
+          <span class="countdown-number" id="cd-seconds">--</span>
+          <span class="countdown-label">Seconds</span>
+        </div>
+      </div>
+
+      <a href="schedule.html" class="cta">View the Schedule &rarr;</a>
+
+      <div class="info-strip">
+        <span class="info-chip"><span class="icon">&#9968;</span> Snowboarding</span>
+        <span class="info-chip"><span class="icon">&#9971;</span> Golf</span>
+        <span class="info-chip"><span class="icon">&#127867;</span> Absolute Chaos</span>
+      </div>
+
+      <!-- Mountain silhouette -->
+      <div class="hero-mountains">
+        <svg viewBox="0 0 1440 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+          <polygon fill="#111827" fill-opacity="0.6" points="0,200 120,100 240,140 360,60 480,120 600,40 720,110 840,30 960,90 1080,50 1200,100 1320,70 1440,120 1440,200"/>
+          <polygon fill="#0a0e1a" fill-opacity="0.8" points="0,200 100,150 200,170 350,110 500,160 650,100 800,150 950,90 1100,140 1250,110 1440,160 1440,200"/>
+        </svg>
+      </div>
+    </section>
+
+    <!-- RULES -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Rules of the Trip</h2>
+          <p>Non-negotiable. Drafted without Akhil's input. Ratified unanimously by everyone except him.</p>
+          <div class="section-divider"></div>
+        </div>
+        <ol class="rules-list">
+          <li class="rules-item observe">
+            <span class="rules-number">01</span>
+            <div>
+              <strong>What happens in Queenstown stays in Queenstown.</strong>
+              <p>Except photos. Photos will be used as evidence at the wedding speech.</p>
+            </div>
+          </li>
+          <li class="rules-item observe">
+            <span class="rules-number">02</span>
+            <div>
+              <strong>Akhil pays for the first round. Every night.</strong>
+              <p>This is non-negotiable. It was decided without him. He was not consulted.</p>
+            </div>
+          </li>
+          <li class="rules-item observe">
+            <span class="rules-number">03</span>
+            <div>
+              <strong>Anyone who goes to bed before midnight on Night One is fined a round of drinks.</strong>
+              <p>You flew to New Zealand. Act like it.</p>
+            </div>
+          </li>
+          <li class="rules-item observe">
+            <span class="rules-number">04</span>
+            <div>
+              <strong>No talking about the wedding.</strong>
+              <p>Unless it's to remind Akhil what he's giving up. Then it's encouraged.</p>
+            </div>
+          </li>
+          <li class="rules-item observe">
+            <span class="rules-number">05</span>
+            <div>
+              <strong>The groom wears what he's told on the Big Night.</strong>
+              <p>Complaining only makes the outfit worse. Resistance is futile.</p>
+            </div>
+          </li>
+          <li class="rules-item observe">
+            <span class="rules-number">06</span>
+            <div>
+              <strong>No group chat messages before 9am.</strong>
+              <p>Violation results in being on breakfast duty. And breakfast better be good.</p>
+            </div>
+          </li>
+          <li class="rules-item observe">
+            <span class="rules-number">07</span>
+            <div>
+              <strong>If you claim you can snowboard, you will be filmed.</strong>
+              <p>Footage will be reviewed. Lies will be prosecuted in the court of the group chat.</p>
+            </div>
+          </li>
+          <li class="rules-item observe">
+            <span class="rules-number">08</span>
+            <div>
+              <strong>Last man standing each night gets to pick the first activity the next day.</strong>
+              <p>This has historically been a terrible idea. We're keeping it anyway.</p>
+            </div>
+          </li>
+          <li class="rules-item observe">
+            <span class="rules-number">09</span>
+            <div>
+              <strong>Fergburger is not optional.</strong>
+              <p>3am. Rain, hail, or hangover. You will stand in that line and you will enjoy it.</p>
+            </div>
+          </li>
+          <li class="rules-item observe">
+            <span class="rules-number">10</span>
+            <div>
+              <strong>Whatever Akhil says happened &mdash; the photos tell the real story.</strong>
+              <p>His version of events is inadmissible. The group chat is the official record.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p><span class="gold">Akhil's Bucks</span> &mdash; Queenstown, NZ &mdash; August 2026</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
