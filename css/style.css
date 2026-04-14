@@ -120,6 +120,12 @@ a:hover {
   letter-spacing: 0;
 }
 
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
 .nav-links {
   display: flex;
   gap: 0.25rem;
@@ -1351,7 +1357,7 @@ body.show-points .price-points {
     display: flex;
   }
 
-  .nav-links {
+  .nav-right {
     display: none;
   }
 
@@ -1482,9 +1488,6 @@ body.show-points .price-points {
   transition: all var(--transition);
 }
 
-@media (max-width: 768px) {
-  .navbar .theme-toggle { display: none; }
-}
 
 /* ===== LIGHT MODE OVERRIDES ===== */
 
@@ -1551,9 +1554,11 @@ html[data-theme] .mob-overlay-close {
   opacity: 0.4;
 }
 
-/* Hero snowflakes — golden dust particles */
+/* Hero snowflakes — bold golden dust particles (filter overrides inline opacity) */
 [data-theme="light"] .hero-snowfall .hs-flake {
-  background: rgba(180, 140, 60, 0.35);
+  background: #b8860b !important;
+  filter: opacity(1);
+  box-shadow: 0 0 4px rgba(160, 120, 40, 0.4);
 }
 
 /* Hero mountains — warm taupe */
@@ -1570,6 +1575,62 @@ html[data-theme] .mob-overlay-close {
 [data-theme="light"] .price-toggle-btn.active {
   color: #1c1917;
 }
+
+/* Cards and glass panels — warm tint */
+[data-theme="light"] .timeline-card,
+[data-theme="light"] .crew-card,
+[data-theme="light"] .activity-card,
+[data-theme="light"] .nightlife-card,
+[data-theme="light"] .flight-card,
+[data-theme="light"] .flight-info-box,
+[data-theme="light"] .rules-item {
+  background: rgba(201, 149, 42, 0.04);
+  border-color: rgba(0, 0, 0, 0.10);
+}
+
+/* Card hover — warm gold lift */
+[data-theme="light"] .timeline-card:hover,
+[data-theme="light"] .crew-card:hover,
+[data-theme="light"] .activity-card:hover,
+[data-theme="light"] .nightlife-card:hover,
+[data-theme="light"] .flight-card:hover,
+[data-theme="light"] .rules-item:hover {
+  border-color: rgba(201, 149, 42, 0.3);
+  box-shadow: 0 8px 24px rgba(201, 149, 42, 0.1);
+}
+
+/* Eyebrow badge */
+[data-theme="light"] .hero-eyebrow {
+  background: rgba(201, 149, 42, 0.12);
+  border-color: rgba(201, 149, 42, 0.3);
+}
+
+/* Timeline dot border */
+[data-theme="light"] .timeline-dot {
+  border-color: var(--navy);
+}
+
+/* Groom card */
+[data-theme="light"] .crew-card.groom {
+  border-color: rgba(201, 149, 42, 0.4);
+  background: rgba(201, 149, 42, 0.08);
+}
+
+/* Footer */
+[data-theme="light"] .footer {
+  border-top-color: rgba(0, 0, 0, 0.08);
+}
+
+/* Flight warning box */
+[data-theme="light"] .flight-info-box.warning {
+  border-color: rgba(251, 146, 60, 0.4);
+  background: rgba(251, 146, 60, 0.06);
+}
+
+/* Scrollbar — light mode */
+[data-theme="light"] ::-webkit-scrollbar-track { background: var(--navy); }
+[data-theme="light"] ::-webkit-scrollbar-thumb { background: #c9c3b7; }
+[data-theme="light"] ::-webkit-scrollbar-thumb:hover { background: var(--gold); }
 
 /* Scrollbar */
 ::-webkit-scrollbar {
