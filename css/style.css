@@ -8,20 +8,79 @@
 }
 
 :root {
-  --navy: #0a0e1a;
-  --navy-light: #111827;
-  --navy-mid: #1a2233;
+  /* Theme colors (dark default) */
+  --bg-page: #0a0e1a;
+  --bg-surface: #111827;
+  --bg-card: #1a2233;
+  --text-primary: #f1f1f1;
+  --text-muted: #c5c9d6;
+  --border-color: rgba(255, 255, 255, 0.08);
+  --card-bg: rgba(255, 255, 255, 0.04);
+  --card-hover-border: rgba(212, 168, 67, 0.2);
   --gold: #d4a843;
   --gold-light: #f0d078;
   --gold-dim: #a07d2e;
-  --white: #f1f1f1;
-  --white-soft: #c5c9d6;
-  --glass: rgba(255, 255, 255, 0.04);
-  --glass-border: rgba(255, 255, 255, 0.08);
+  --gold-border: rgba(212, 168, 67, 0.3);
+  --gold-bg: rgba(212, 168, 67, 0.08);
+  --tag-travel-bg: rgba(56, 189, 248, 0.15); --tag-travel-color: #7dd3fc;
+  --tag-snow-bg: rgba(167, 139, 250, 0.15); --tag-snow-color: #c4b5fd;
+  --tag-golf-bg: rgba(74, 222, 128, 0.15); --tag-golf-color: #86efac;
+  --tag-party-bg: rgba(251, 146, 60, 0.15); --tag-party-color: #fdba74;
+  --tag-chill-bg: rgba(212, 168, 67, 0.15); --tag-chill-color: var(--gold-light);
+  --badge-budget-bg: rgba(74, 222, 128, 0.15); --badge-budget-color: #86efac; --badge-budget-border: rgba(74, 222, 128, 0.25);
+  --snow-banner: linear-gradient(135deg, #1e3a5f, #0f1f3d);
+  --golf-banner: linear-gradient(135deg, #1a3d2e, #0f2a1a);
+  --warning-border: rgba(251, 146, 60, 0.3); --warning-bg: rgba(251, 146, 60, 0.05);
+  --pill-bg: rgba(255, 255, 255, 0.05);
+  --flight-price-bg: rgba(255, 255, 255, 0.02);
+  --nav-bg: rgba(10, 14, 26, 0.85);
+  --hero-bg: #0a0e1a;
+  --snowflake-color: white;
+  --speech-bg: white;
+  --speech-color: #0a0e1a;
+  --scrollbar-track: #0a0e1a;
+  --scrollbar-thumb: #1a2233;
+
+  /* Static */
   --radius: 12px;
   --radius-lg: 20px;
   --shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
   --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+[data-theme="light"] {
+  --bg-page: #f4f7fb;
+  --bg-surface: #ffffff;
+  --bg-card: #ffffff;
+  --text-primary: #0d1b2e;
+  --text-muted: #64748b;
+  --border-color: rgba(0, 0, 0, 0.1);
+  --card-bg: rgba(0, 0, 0, 0.03);
+  --card-hover-border: rgba(180, 130, 30, 0.3);
+  --gold: #b8860b;
+  --gold-light: #d4a020;
+  --gold-dim: #8a6508;
+  --gold-border: rgba(180, 130, 30, 0.3);
+  --gold-bg: rgba(180, 130, 30, 0.08);
+  --tag-travel-bg: rgba(56, 189, 248, 0.1); --tag-travel-color: #0284c7;
+  --tag-snow-bg: rgba(167, 139, 250, 0.1); --tag-snow-color: #7c3aed;
+  --tag-golf-bg: rgba(74, 222, 128, 0.1); --tag-golf-color: #16a34a;
+  --tag-party-bg: rgba(251, 146, 60, 0.1); --tag-party-color: #ea580c;
+  --tag-chill-bg: rgba(180, 130, 30, 0.1); --tag-chill-color: var(--gold);
+  --badge-budget-bg: rgba(74, 222, 128, 0.1); --badge-budget-color: #16a34a; --badge-budget-border: rgba(74, 222, 128, 0.3);
+  --snow-banner: linear-gradient(135deg, #b8d4f0, #8ab4dc);
+  --golf-banner: linear-gradient(135deg, #a8d8b8, #7cc08c);
+  --warning-border: rgba(251, 146, 60, 0.4); --warning-bg: rgba(251, 146, 60, 0.06);
+  --pill-bg: rgba(0, 0, 0, 0.05);
+  --flight-price-bg: rgba(0, 0, 0, 0.02);
+  --nav-bg: rgba(10, 14, 26, 0.95);
+  --hero-bg: #0d1b2e;
+  --snowflake-color: rgba(13, 27, 46, 0.15);
+  --speech-bg: #0d1b2e;
+  --speech-color: #f1f1f1;
+  --shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  --scrollbar-track: #e8ecf2;
+  --scrollbar-thumb: #c0c8d4;
 }
 
 html {
@@ -31,11 +90,12 @@ html {
 
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  background-color: var(--navy);
-  color: var(--white);
+  background-color: var(--bg-page);
+  color: var(--text-primary);
   line-height: 1.6;
   min-height: 100vh;
   overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* ===== BACKGROUND TEXTURE ===== */
@@ -78,10 +138,10 @@ a:hover {
   left: 0;
   right: 0;
   z-index: 1000;
-  background: rgba(10, 14, 26, 0.85);
+  background: var(--nav-bg);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid var(--glass-border);
+  border-bottom: 1px solid var(--border-color);
   padding: 0 2rem;
   height: 64px;
   display: flex;
@@ -99,7 +159,7 @@ a:hover {
 }
 
 .nav-brand span {
-  color: var(--white-soft);
+  color: var(--text-muted);
   font-weight: 400;
   margin-left: 0.5rem;
   font-size: 0.85rem;
@@ -116,7 +176,7 @@ a:hover {
 .nav-links a {
   display: block;
   padding: 0.5rem 1rem;
-  color: var(--white-soft);
+  color: var(--text-muted);
   font-size: 0.9rem;
   font-weight: 500;
   border-radius: 8px;
@@ -126,7 +186,7 @@ a:hover {
 .nav-links a:hover,
 .nav-links a.active {
   color: var(--gold);
-  background: rgba(212, 168, 67, 0.1);
+  background: var(--gold-bg);
 }
 
 
@@ -204,8 +264,8 @@ main {
   position: absolute;
   top: -10px;
   left: 100px;
-  background: white;
-  color: #0a0e1a;
+  background: var(--speech-bg);
+  color: var(--speech-color);
   font-family: 'Inter', sans-serif;
   font-size: 0.7rem;
   font-weight: 700;
@@ -225,7 +285,7 @@ main {
   height: 0;
   border-left: 6px solid transparent;
   border-right: 6px solid transparent;
-  border-top: 7px solid white;
+  border-top: 7px solid var(--speech-bg);
 }
 
 .hero-boarder .hb-svg {
@@ -305,7 +365,7 @@ main {
 
 .hero-snowfall .hs-flake {
   position: absolute;
-  background: white;
+  background: var(--snowflake-color);
   border-radius: 50%;
   animation: hs-fall linear infinite;
   will-change: transform;
@@ -326,7 +386,7 @@ main {
   right: 0;
   bottom: 0;
   background:
-    linear-gradient(180deg, transparent 0%, var(--navy) 100%),
+    linear-gradient(180deg, transparent 0%, var(--bg-page) 100%),
     url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%23fff' stop-opacity='.02'/%3E%3Cstop offset='1' stop-color='%23fff' stop-opacity='0'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpolygon points='50,5 95,50 75,95 25,95 5,50' fill='url(%23g)' stroke='rgba(255,255,255,0.015)' stroke-width='.5'/%3E%3C/svg%3E");
   pointer-events: none;
   z-index: -1;
@@ -358,9 +418,9 @@ main {
   color: var(--gold);
   margin-bottom: 1.5rem;
   padding: 0.4rem 1.2rem;
-  border: 1px solid rgba(212, 168, 67, 0.3);
+  border: 1px solid var(--gold-border);
   border-radius: 100px;
-  background: rgba(212, 168, 67, 0.08);
+  background: var(--gold-bg);
 }
 
 .hero h1 {
@@ -374,7 +434,7 @@ main {
 
 .hero-subtitle {
   font-size: clamp(1rem, 2vw, 1.3rem);
-  color: var(--white-soft);
+  color: var(--text-muted);
   margin-bottom: 0.5rem;
   font-weight: 400;
 }
@@ -397,8 +457,8 @@ main {
 }
 
 .countdown-unit {
-  background: var(--glass);
-  border: 1px solid var(--glass-border);
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
   border-radius: var(--radius);
   padding: 1.25rem 1.5rem;
   min-width: 100px;
@@ -409,7 +469,7 @@ main {
 
 .countdown-unit:hover {
   transform: translateY(-2px);
-  border-color: rgba(212, 168, 67, 0.2);
+  border-color: var(--card-hover-border);
 }
 
 .countdown-number {
@@ -426,7 +486,7 @@ main {
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  color: var(--white-soft);
+  color: var(--text-muted);
   margin-top: 0.5rem;
 }
 
@@ -437,7 +497,7 @@ main {
   gap: 0.5rem;
   padding: 0.9rem 2rem;
   background: linear-gradient(135deg, var(--gold), var(--gold-dim));
-  color: var(--navy);
+  color: var(--bg-page);
   font-weight: 700;
   font-size: 0.95rem;
   border-radius: 100px;
@@ -449,7 +509,7 @@ main {
 .cta:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 30px rgba(212, 168, 67, 0.4);
-  color: var(--navy);
+  color: var(--bg-page);
 }
 
 /* ===== SECTION ===== */
@@ -467,7 +527,7 @@ main {
 }
 
 .section-header p {
-  color: var(--white-soft);
+  color: var(--text-muted);
   font-size: 1.05rem;
   max-width: 600px;
   margin: 0 auto;
@@ -492,7 +552,7 @@ main {
 }
 
 .page-hero p {
-  color: var(--white-soft);
+  color: var(--text-muted);
   font-size: 1.1rem;
   max-width: 600px;
   margin: 0 auto;
@@ -513,7 +573,7 @@ main {
   top: 0;
   bottom: 0;
   width: 2px;
-  background: linear-gradient(180deg, var(--gold), var(--glass-border));
+  background: linear-gradient(180deg, var(--gold), var(--border-color));
   border-radius: 2px;
 }
 
@@ -534,7 +594,7 @@ main {
   height: 14px;
   border-radius: 50%;
   background: var(--gold);
-  border: 3px solid var(--navy);
+  border: 3px solid var(--bg-page);
   box-shadow: 0 0 0 2px var(--gold);
   transform: translateX(-50%);
   left: -2.5rem;
@@ -551,15 +611,15 @@ main {
 }
 
 .timeline-card {
-  background: var(--glass);
-  border: 1px solid var(--glass-border);
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
   border-radius: var(--radius);
   padding: 1.5rem;
   transition: border-color var(--transition), transform var(--transition);
 }
 
 .timeline-card:hover {
-  border-color: rgba(212, 168, 67, 0.15);
+  border-color: var(--card-hover-border);
   transform: translateX(4px);
 }
 
@@ -575,7 +635,7 @@ main {
 }
 
 .timeline-card p {
-  color: var(--white-soft);
+  color: var(--text-muted);
   font-size: 0.95rem;
 }
 
@@ -586,7 +646,7 @@ main {
 
 .timeline-card ul li {
   padding: 0.3rem 0;
-  color: var(--white-soft);
+  color: var(--text-muted);
   font-size: 0.95rem;
   padding-left: 1.2rem;
   position: relative;
@@ -614,11 +674,11 @@ main {
   margin-top: 0.75rem;
 }
 
-.tag-travel { background: rgba(56, 189, 248, 0.15); color: #7dd3fc; }
-.tag-snow { background: rgba(167, 139, 250, 0.15); color: #c4b5fd; }
-.tag-golf { background: rgba(74, 222, 128, 0.15); color: #86efac; }
-.tag-party { background: rgba(251, 146, 60, 0.15); color: #fdba74; }
-.tag-chill { background: rgba(212, 168, 67, 0.15); color: var(--gold-light); }
+.tag-travel { background: var(--tag-travel-bg); color: var(--tag-travel-color); }
+.tag-snow { background: var(--tag-snow-bg); color: var(--tag-snow-color); }
+.tag-golf { background: var(--tag-golf-bg); color: var(--tag-golf-color); }
+.tag-party { background: var(--tag-party-bg); color: var(--tag-party-color); }
+.tag-chill { background: var(--tag-chill-bg); color: var(--tag-chill-color); }
 
 /* ===== CREW GRID ===== */
 .crew-grid {
@@ -630,8 +690,8 @@ main {
 }
 
 .crew-card {
-  background: var(--glass);
-  border: 1px solid var(--glass-border);
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
   border-radius: var(--radius);
   padding: 2rem 1rem;
   text-align: center;
@@ -641,14 +701,14 @@ main {
 }
 
 .crew-card:hover {
-  border-color: rgba(212, 168, 67, 0.2);
+  border-color: var(--card-hover-border);
   transform: translateY(-4px);
   box-shadow: var(--shadow);
 }
 
 .crew-card.groom {
-  border-color: rgba(212, 168, 67, 0.3);
-  background: linear-gradient(135deg, rgba(212, 168, 67, 0.08), var(--glass));
+  border-color: var(--gold-border);
+  background: linear-gradient(135deg, var(--gold-bg), var(--card-bg));
 }
 
 .crew-card.groom::before {
@@ -665,8 +725,8 @@ main {
   width: 72px;
   height: 72px;
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--navy-mid), var(--navy-light));
-  border: 2px solid var(--glass-border);
+  background: linear-gradient(135deg, var(--bg-card), var(--bg-surface));
+  border: 2px solid var(--border-color);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -679,7 +739,7 @@ main {
 
 .crew-card.groom .crew-avatar {
   border-color: var(--gold);
-  background: linear-gradient(135deg, rgba(212, 168, 67, 0.2), var(--navy-mid));
+  background: linear-gradient(135deg, var(--gold-bg), var(--bg-card));
 }
 
 .crew-card h3 {
@@ -696,7 +756,7 @@ main {
 }
 
 .crew-placeholder {
-  color: var(--white-soft);
+  color: var(--text-muted);
   opacity: 0.5;
   font-style: italic;
   font-size: 0.85rem;
@@ -721,15 +781,15 @@ main {
 }
 
 .activity-card {
-  background: var(--glass);
-  border: 1px solid var(--glass-border);
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
   border-radius: var(--radius-lg);
   overflow: hidden;
   transition: all var(--transition);
 }
 
 .activity-card:hover {
-  border-color: rgba(212, 168, 67, 0.2);
+  border-color: var(--card-hover-border);
   transform: translateY(-4px);
   box-shadow: var(--shadow);
 }
@@ -745,11 +805,11 @@ main {
 }
 
 .activity-banner.snow {
-  background: linear-gradient(135deg, #1e3a5f, #0f1f3d);
+  background: var(--snow-banner);
 }
 
 .activity-banner.golf {
-  background: linear-gradient(135deg, #1a3d2e, #0f2a1a);
+  background: var(--golf-banner);
 }
 
 .activity-banner::after {
@@ -780,7 +840,7 @@ main {
 }
 
 .activity-body p {
-  color: var(--white-soft);
+  color: var(--text-muted);
   font-size: 0.95rem;
   margin-bottom: 1rem;
 }
@@ -794,11 +854,11 @@ main {
 
 .activity-details li {
   padding: 0.35rem 0.8rem;
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--pill-bg);
   border-radius: 100px;
   font-size: 0.8rem;
-  color: var(--white-soft);
-  border: 1px solid var(--glass-border);
+  color: var(--text-muted);
+  border: 1px solid var(--border-color);
 }
 
 /* ===== APRES / NIGHTLIFE ===== */
@@ -809,15 +869,15 @@ main {
 }
 
 .nightlife-card {
-  background: var(--glass);
-  border: 1px solid var(--glass-border);
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
   border-radius: var(--radius);
   padding: 1.5rem;
   transition: all var(--transition);
 }
 
 .nightlife-card:hover {
-  border-color: rgba(212, 168, 67, 0.15);
+  border-color: var(--card-hover-border);
   transform: translateY(-2px);
 }
 
@@ -832,7 +892,7 @@ main {
 }
 
 .nightlife-card p {
-  color: var(--white-soft);
+  color: var(--text-muted);
   font-size: 0.9rem;
 }
 
@@ -850,15 +910,15 @@ main {
   display: flex;
   align-items: flex-start;
   gap: 1.25rem;
-  background: var(--glass);
-  border: 1px solid var(--glass-border);
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
   border-radius: var(--radius);
   padding: 1.25rem 1.5rem;
   transition: all var(--transition);
 }
 
 .rules-item:hover {
-  border-color: rgba(212, 168, 67, 0.2);
+  border-color: var(--card-hover-border);
   transform: translateX(4px);
 }
 
@@ -879,7 +939,7 @@ main {
 }
 
 .rules-item p {
-  color: var(--white-soft);
+  color: var(--text-muted);
   font-size: 0.9rem;
   margin: 0;
 }
@@ -890,8 +950,8 @@ main {
   justify-content: center;
   gap: 0;
   margin-bottom: 3rem;
-  background: var(--glass);
-  border: 1px solid var(--glass-border);
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
   border-radius: 100px;
   padding: 4px;
   width: fit-content;
@@ -904,7 +964,7 @@ main {
   border: none;
   border-radius: 100px;
   background: transparent;
-  color: var(--white-soft);
+  color: var(--text-muted);
   font-family: inherit;
   font-size: 0.9rem;
   font-weight: 600;
@@ -914,7 +974,7 @@ main {
 
 .price-toggle-btn.active {
   background: linear-gradient(135deg, var(--gold), var(--gold-dim));
-  color: var(--navy);
+  color: var(--bg-page);
 }
 
 .flights-grid {
@@ -925,8 +985,8 @@ main {
 }
 
 .flight-card {
-  background: var(--glass);
-  border: 1px solid var(--glass-border);
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
   border-radius: var(--radius-lg);
   overflow: hidden;
   transition: all var(--transition);
@@ -936,7 +996,7 @@ main {
 }
 
 .flight-card:hover {
-  border-color: rgba(212, 168, 67, 0.2);
+  border-color: var(--card-hover-border);
   transform: translateY(-4px);
   box-shadow: var(--shadow);
 }
@@ -954,15 +1014,15 @@ main {
 }
 
 .badge-premium {
-  background: rgba(212, 168, 67, 0.2);
+  background: var(--gold-bg);
   color: var(--gold-light);
-  border: 1px solid rgba(212, 168, 67, 0.3);
+  border: 1px solid var(--gold-border);
 }
 
 .badge-budget {
-  background: rgba(74, 222, 128, 0.15);
-  color: #86efac;
-  border: 1px solid rgba(74, 222, 128, 0.25);
+  background: var(--badge-budget-bg);
+  color: var(--badge-budget-color);
+  border: 1px solid var(--badge-budget-border);
 }
 
 .flight-card-header {
@@ -975,7 +1035,7 @@ main {
 }
 
 .flight-subtitle {
-  color: var(--white-soft);
+  color: var(--text-muted);
   font-size: 0.85rem;
   font-style: italic;
 }
@@ -1021,13 +1081,13 @@ main {
 .flight-code {
   font-size: 0.95rem;
   font-weight: 700;
-  color: var(--white);
+  color: var(--text-primary);
   letter-spacing: 0.05em;
 }
 
 .flight-city {
   font-size: 0.7rem;
-  color: var(--white-soft);
+  color: var(--text-muted);
   margin-top: 0.1rem;
 }
 
@@ -1042,34 +1102,34 @@ main {
 
 .flight-duration {
   font-size: 0.75rem;
-  color: var(--white-soft);
+  color: var(--text-muted);
   font-weight: 500;
 }
 
 .flight-line {
   width: 100%;
   height: 0;
-  border-top: 1px solid var(--glass-border);
+  border-top: 1px solid var(--border-color);
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .flight-direct-badge {
-  background: var(--navy);
+  background: var(--bg-page);
   padding: 0.15rem 0.5rem;
   border-radius: 100px;
   font-size: 0.65rem;
   font-weight: 600;
-  color: #86efac;
-  border: 1px solid rgba(74, 222, 128, 0.25);
+  color: var(--badge-budget-color);
+  border: 1px solid var(--badge-budget-border);
   text-transform: uppercase;
   letter-spacing: 0.06em;
 }
 
 .flight-number {
   font-size: 0.7rem;
-  color: var(--white-soft);
+  color: var(--text-muted);
   font-weight: 500;
 }
 
@@ -1078,20 +1138,20 @@ main {
   justify-content: space-between;
   margin-top: 0.75rem;
   font-size: 0.75rem;
-  color: var(--white-soft);
+  color: var(--text-muted);
   opacity: 0.7;
 }
 
 .flight-divider {
   height: 1px;
-  background: var(--glass-border);
+  background: var(--border-color);
   margin: 0.5rem 0;
 }
 
 .flight-price {
   padding: 1.25rem 1.75rem;
-  border-top: 1px solid var(--glass-border);
-  background: rgba(255, 255, 255, 0.02);
+  border-top: 1px solid var(--border-color);
+  background: var(--flight-price-bg);
 }
 
 .price-cash,
@@ -1109,7 +1169,7 @@ main {
 
 .price-label {
   font-size: 0.8rem;
-  color: var(--white-soft);
+  color: var(--text-muted);
 }
 
 /* Toggle visibility */
@@ -1135,15 +1195,15 @@ body.show-points .price-points {
 }
 
 .flight-info-box {
-  background: var(--glass);
-  border: 1px solid var(--glass-border);
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
   border-radius: var(--radius);
   padding: 1.5rem;
 }
 
 .flight-info-box.warning {
-  border-color: rgba(251, 146, 60, 0.3);
-  background: rgba(251, 146, 60, 0.05);
+  border-color: var(--warning-border);
+  background: var(--warning-bg);
 }
 
 .flight-info-box h3 {
@@ -1152,12 +1212,12 @@ body.show-points .price-points {
 }
 
 .flight-info-box p {
-  color: var(--white-soft);
+  color: var(--text-muted);
   font-size: 0.9rem;
 }
 
 .flight-info-box p strong {
-  color: var(--white);
+  color: var(--text-primary);
 }
 
 .flights-warning-text {
@@ -1214,11 +1274,11 @@ body.show-points .price-points {
   align-items: center;
   gap: 0.4rem;
   padding: 0.5rem 1rem;
-  background: var(--glass);
-  border: 1px solid var(--glass-border);
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
   border-radius: 100px;
   font-size: 0.85rem;
-  color: var(--white-soft);
+  color: var(--text-muted);
 }
 
 .info-chip .icon {
@@ -1229,15 +1289,89 @@ body.show-points .price-points {
 .footer {
   text-align: center;
   padding: 3rem 1.5rem;
-  color: var(--white-soft);
+  color: var(--text-muted);
   font-size: 0.85rem;
-  border-top: 1px solid var(--glass-border);
+  border-top: 1px solid var(--border-color);
   margin-top: 4rem;
 }
 
 .footer .gold {
   color: var(--gold);
   font-weight: 600;
+}
+
+/* ===== THEME TOGGLE ===== */
+.theme-toggle {
+  background: var(--card-bg);
+  border: 1px solid var(--gold);
+  border-radius: 8px;
+  padding: 0.4rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  margin-left: 0.5rem;
+  transition: background var(--transition);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.theme-toggle:hover {
+  background: var(--gold-bg);
+}
+
+.theme-toggle svg {
+  width: 18px;
+  height: 18px;
+  fill: var(--gold);
+}
+
+.theme-toggle .icon-sun { display: none; }
+.theme-toggle .icon-moon { display: block; }
+
+[data-theme="light"] .theme-toggle .icon-sun { display: block; }
+[data-theme="light"] .theme-toggle .icon-moon { display: none; }
+
+/* Mobile theme toggle */
+.mob-theme-toggle {
+  display: none;
+  position: fixed;
+  top: 12px;
+  right: 64px;
+  z-index: 1100;
+  background: #0d1b2e;
+  border: 1px solid #f59e0b;
+  border-radius: 8px;
+  padding: 0.4rem;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.mob-theme-toggle svg {
+  width: 20px;
+  height: 20px;
+  fill: #f59e0b;
+}
+
+.mob-theme-toggle .icon-sun { display: none; }
+.mob-theme-toggle .icon-moon { display: block; }
+
+[data-theme="light"] .mob-theme-toggle .icon-sun { display: block; }
+[data-theme="light"] .mob-theme-toggle .icon-moon { display: none; }
+
+/* Light mode: keep hero/nav dark, lighten content areas */
+[data-theme="light"] .section,
+[data-theme="light"] .footer {
+  background: var(--bg-page);
+}
+
+[data-theme="light"] body::before {
+  background: none;
 }
 
 /* ===== MOBILE HAMBURGER + OVERLAY ===== */
@@ -1276,18 +1410,10 @@ body.show-points .price-points {
   align-items: center;
   justify-content: center;
   gap: 1.5rem;
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  transform: translateY(-20px);
-  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
 }
 
 .mob-overlay.open {
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
-  transform: translateY(0);
+  display: flex;
 }
 
 .mob-overlay-close {
@@ -1310,7 +1436,7 @@ body.show-points .price-points {
 }
 
 .mob-overlay a {
-  color: var(--white);
+  color: var(--text-primary);
   font-size: 1.4rem;
   font-weight: 600;
   text-decoration: none;
@@ -1334,8 +1460,12 @@ body.show-points .price-points {
     display: flex;
   }
 
-  .mob-overlay {
+  .mob-theme-toggle {
     display: flex;
+  }
+
+  .theme-toggle {
+    display: none;
   }
 
   .nav-links {
@@ -1434,11 +1564,11 @@ body.show-points .price-points {
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--navy);
+  background: var(--scrollbar-track);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--navy-mid);
+  background: var(--scrollbar-thumb);
   border-radius: 4px;
 }
 
