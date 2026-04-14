@@ -642,9 +642,9 @@ main {
 /* ===== CREW GRID ===== */
 .crew-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   gap: 1.5rem;
-  max-width: 900px;
+  max-width: 1000px;
   margin: 0 auto;
 }
 
@@ -652,7 +652,7 @@ main {
   background: var(--glass);
   border: 1px solid var(--glass-border);
   border-radius: var(--radius);
-  padding: 2rem 1rem;
+  padding: 1.75rem 1rem 1.5rem;
   text-align: center;
   transition: all var(--transition);
   position: relative;
@@ -665,9 +665,14 @@ main {
   box-shadow: var(--shadow);
 }
 
+/* GROOM — spans full width, larger */
 .crew-card.groom {
-  border-color: rgba(212, 168, 67, 0.3);
-  background: linear-gradient(135deg, rgba(212, 168, 67, 0.08), var(--glass));
+  grid-column: 1 / -1;
+  max-width: 400px;
+  justify-self: center;
+  border-color: rgba(212, 168, 67, 0.4);
+  background: linear-gradient(135deg, rgba(212, 168, 67, 0.1), var(--glass));
+  padding: 2.5rem 2rem 2rem;
 }
 
 .crew-card.groom::before {
@@ -696,9 +701,36 @@ main {
   letter-spacing: 0.05em;
 }
 
+/* Groom avatar — gold */
 .crew-card.groom .crew-avatar {
+  width: 88px;
+  height: 88px;
+  font-size: 1.5rem;
   border-color: var(--gold);
-  background: linear-gradient(135deg, rgba(212, 168, 67, 0.2), var(--navy-mid));
+  background: linear-gradient(135deg, rgba(212, 168, 67, 0.3), rgba(212, 168, 67, 0.1));
+}
+
+/* Avatar colour cycle — 7 colours */
+.av-1 { background: linear-gradient(135deg, #1e3a5f, #152848) !important; }
+.av-2 { background: linear-gradient(135deg, #1a3d2e, #0f2a1a) !important; }
+.av-3 { background: linear-gradient(135deg, #3b1f5e, #2a1545) !important; }
+.av-4 { background: linear-gradient(135deg, #1a2f4a, #111d3a) !important; }
+.av-5 { background: linear-gradient(135deg, #4a2020, #351515) !important; }
+.av-6 { background: linear-gradient(135deg, #1e4a4a, #0f3535) !important; }
+.av-7 { background: linear-gradient(135deg, #3a3020, #2a2010) !important; }
+
+/* Crew bio one-liner */
+.crew-bio {
+  color: var(--white-soft);
+  font-size: 0.78rem;
+  font-style: italic;
+  margin-top: 0.5rem;
+  line-height: 1.4;
+}
+
+.crew-card.groom .crew-bio {
+  font-size: 0.85rem;
+  margin-top: 0.75rem;
 }
 
 .crew-card h3 {
@@ -1392,8 +1424,12 @@ body.show-points .price-points {
   }
 
   .crew-grid {
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
+  }
+
+  .crew-card.groom {
+    max-width: 100%;
   }
 
   .activity-grid {
@@ -1420,7 +1456,7 @@ body.show-points .price-points {
   }
 
   .crew-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
   }
 }
 
