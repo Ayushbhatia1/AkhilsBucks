@@ -1548,10 +1548,23 @@ html[data-theme] .mob-overlay-close {
 [data-theme="light"] .badge-budget { color: #1a7a3a; }
 [data-theme="light"] .flight-direct-badge { color: #1a7a3a; }
 
-/* Hero snowboarder — invert filter for light bg */
+/* Hero snowboarder — keep original SVG colors, just reduce opacity */
 [data-theme="light"] .hero-boarder {
-  filter: invert(0.85) hue-rotate(180deg);
-  opacity: 0.4;
+  opacity: 0.75;
+}
+
+/* Speech bubble — dark on light bg */
+[data-theme="light"] .hero-boarder .hb-speech {
+  background: #1c1917;
+  color: #faf8f4;
+}
+[data-theme="light"] .hero-boarder .hb-speech::after {
+  border-top-color: #1c1917;
+}
+
+/* Snow spray — subtle blue tint so visible on light bg */
+[data-theme="light"] .hero-boarder .hb-spray {
+  fill: rgba(100, 140, 180, 0.6);
 }
 
 /* Hero snowflakes — bold golden dust particles (filter overrides inline opacity) */
