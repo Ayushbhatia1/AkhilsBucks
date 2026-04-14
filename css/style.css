@@ -8,40 +8,16 @@
 }
 
 :root {
-  /* Theme colors (dark default) */
-  --bg-page: #0a0e1a;
-  --bg-surface: #111827;
-  --bg-card: #1a2233;
-  --text-primary: #f1f1f1;
-  --text-muted: #c5c9d6;
-  --border-color: rgba(255, 255, 255, 0.08);
-  --card-bg: rgba(255, 255, 255, 0.04);
-  --card-hover-border: rgba(212, 168, 67, 0.2);
+  --navy: #0a0e1a;
+  --navy-light: #111827;
+  --navy-mid: #1a2233;
   --gold: #d4a843;
   --gold-light: #f0d078;
   --gold-dim: #a07d2e;
-  --gold-border: rgba(212, 168, 67, 0.3);
-  --gold-bg: rgba(212, 168, 67, 0.08);
-  --tag-travel-bg: rgba(56, 189, 248, 0.15); --tag-travel-color: #7dd3fc;
-  --tag-snow-bg: rgba(167, 139, 250, 0.15); --tag-snow-color: #c4b5fd;
-  --tag-golf-bg: rgba(74, 222, 128, 0.15); --tag-golf-color: #86efac;
-  --tag-party-bg: rgba(251, 146, 60, 0.15); --tag-party-color: #fdba74;
-  --tag-chill-bg: rgba(212, 168, 67, 0.15); --tag-chill-color: var(--gold-light);
-  --badge-budget-bg: rgba(74, 222, 128, 0.15); --badge-budget-color: #86efac; --badge-budget-border: rgba(74, 222, 128, 0.25);
-  --snow-banner: linear-gradient(135deg, #1e3a5f, #0f1f3d);
-  --golf-banner: linear-gradient(135deg, #1a3d2e, #0f2a1a);
-  --warning-border: rgba(251, 146, 60, 0.3); --warning-bg: rgba(251, 146, 60, 0.05);
-  --pill-bg: rgba(255, 255, 255, 0.05);
-  --flight-price-bg: rgba(255, 255, 255, 0.02);
-  --nav-bg: rgba(10, 14, 26, 0.85);
-  --hero-bg: #0a0e1a;
-  --snowflake-color: white;
-  --speech-bg: white;
-  --speech-color: #0a0e1a;
-  --scrollbar-track: #0a0e1a;
-  --scrollbar-thumb: #1a2233;
-
-  /* Static */
+  --white: #f1f1f1;
+  --white-soft: #c5c9d6;
+  --glass: rgba(255, 255, 255, 0.04);
+  --glass-border: rgba(255, 255, 255, 0.08);
   --radius: 12px;
   --radius-lg: 20px;
   --shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
@@ -51,13 +27,12 @@
 html {
   scroll-behavior: smooth;
   font-size: 16px;
-  background: #0d1b2e;
 }
 
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  background-color: var(--bg-page);
-  color: var(--text-primary);
+  background-color: var(--navy);
+  color: var(--white);
   line-height: 1.6;
   min-height: 100vh;
   overflow-x: hidden;
@@ -103,32 +78,15 @@ a:hover {
   left: 0;
   right: 0;
   z-index: 1000;
-  background: var(--nav-bg);
+  background: rgba(10, 14, 26, 0.85);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--glass-border);
   padding: 0 2rem;
   height: 64px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-/* Full-width nav background behind centred content */
-.navbar::before {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 64px;
-  background: var(--nav-bg);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid var(--border-color);
-  z-index: -1;
 }
 
 .nav-brand {
@@ -141,7 +99,7 @@ a:hover {
 }
 
 .nav-brand span {
-  color: var(--text-muted);
+  color: var(--white-soft);
   font-weight: 400;
   margin-left: 0.5rem;
   font-size: 0.85rem;
@@ -153,13 +111,12 @@ a:hover {
   display: flex;
   gap: 0.25rem;
   list-style: none;
-  margin-left: auto;
 }
 
 .nav-links a {
   display: block;
   padding: 0.5rem 1rem;
-  color: var(--text-muted);
+  color: var(--white-soft);
   font-size: 0.9rem;
   font-weight: 500;
   border-radius: 8px;
@@ -169,7 +126,7 @@ a:hover {
 .nav-links a:hover,
 .nav-links a.active {
   color: var(--gold);
-  background: var(--gold-bg);
+  background: rgba(212, 168, 67, 0.1);
 }
 
 
@@ -247,8 +204,8 @@ main {
   position: absolute;
   top: -10px;
   left: 100px;
-  background: var(--speech-bg);
-  color: var(--speech-color);
+  background: white;
+  color: #0a0e1a;
   font-family: 'Inter', sans-serif;
   font-size: 0.7rem;
   font-weight: 700;
@@ -268,7 +225,7 @@ main {
   height: 0;
   border-left: 6px solid transparent;
   border-right: 6px solid transparent;
-  border-top: 7px solid var(--speech-bg);
+  border-top: 7px solid white;
 }
 
 .hero-boarder .hb-svg {
@@ -348,7 +305,7 @@ main {
 
 .hero-snowfall .hs-flake {
   position: absolute;
-  background: var(--snowflake-color);
+  background: white;
   border-radius: 50%;
   animation: hs-fall linear infinite;
   will-change: transform;
@@ -369,7 +326,7 @@ main {
   right: 0;
   bottom: 0;
   background:
-    linear-gradient(180deg, transparent 0%, var(--bg-page) 100%),
+    linear-gradient(180deg, transparent 0%, var(--navy) 100%),
     url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%23fff' stop-opacity='.02'/%3E%3Cstop offset='1' stop-color='%23fff' stop-opacity='0'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpolygon points='50,5 95,50 75,95 25,95 5,50' fill='url(%23g)' stroke='rgba(255,255,255,0.015)' stroke-width='.5'/%3E%3C/svg%3E");
   pointer-events: none;
   z-index: -1;
@@ -401,9 +358,9 @@ main {
   color: var(--gold);
   margin-bottom: 1.5rem;
   padding: 0.4rem 1.2rem;
-  border: 1px solid var(--gold-border);
+  border: 1px solid rgba(212, 168, 67, 0.3);
   border-radius: 100px;
-  background: var(--gold-bg);
+  background: rgba(212, 168, 67, 0.08);
 }
 
 .hero h1 {
@@ -417,7 +374,7 @@ main {
 
 .hero-subtitle {
   font-size: clamp(1rem, 2vw, 1.3rem);
-  color: var(--text-muted);
+  color: var(--white-soft);
   margin-bottom: 0.5rem;
   font-weight: 400;
 }
@@ -440,8 +397,8 @@ main {
 }
 
 .countdown-unit {
-  background: var(--card-bg);
-  border: 1px solid var(--border-color);
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
   border-radius: var(--radius);
   padding: 1.25rem 1.5rem;
   min-width: 100px;
@@ -452,7 +409,7 @@ main {
 
 .countdown-unit:hover {
   transform: translateY(-2px);
-  border-color: var(--card-hover-border);
+  border-color: rgba(212, 168, 67, 0.2);
 }
 
 .countdown-number {
@@ -469,7 +426,7 @@ main {
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  color: var(--text-muted);
+  color: var(--white-soft);
   margin-top: 0.5rem;
 }
 
@@ -480,7 +437,7 @@ main {
   gap: 0.5rem;
   padding: 0.9rem 2rem;
   background: linear-gradient(135deg, var(--gold), var(--gold-dim));
-  color: var(--bg-page);
+  color: var(--navy);
   font-weight: 700;
   font-size: 0.95rem;
   border-radius: 100px;
@@ -492,7 +449,7 @@ main {
 .cta:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 30px rgba(212, 168, 67, 0.4);
-  color: var(--bg-page);
+  color: var(--navy);
 }
 
 /* ===== SECTION ===== */
@@ -510,7 +467,7 @@ main {
 }
 
 .section-header p {
-  color: var(--text-muted);
+  color: var(--white-soft);
   font-size: 1.05rem;
   max-width: 600px;
   margin: 0 auto;
@@ -535,7 +492,7 @@ main {
 }
 
 .page-hero p {
-  color: var(--text-muted);
+  color: var(--white-soft);
   font-size: 1.1rem;
   max-width: 600px;
   margin: 0 auto;
@@ -556,7 +513,7 @@ main {
   top: 0;
   bottom: 0;
   width: 2px;
-  background: linear-gradient(180deg, var(--gold), var(--border-color));
+  background: linear-gradient(180deg, var(--gold), var(--glass-border));
   border-radius: 2px;
 }
 
@@ -577,7 +534,7 @@ main {
   height: 14px;
   border-radius: 50%;
   background: var(--gold);
-  border: 3px solid var(--bg-page);
+  border: 3px solid var(--navy);
   box-shadow: 0 0 0 2px var(--gold);
   transform: translateX(-50%);
   left: -2.5rem;
@@ -594,15 +551,15 @@ main {
 }
 
 .timeline-card {
-  background: var(--card-bg);
-  border: 1px solid var(--border-color);
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
   border-radius: var(--radius);
   padding: 1.5rem;
   transition: border-color var(--transition), transform var(--transition);
 }
 
 .timeline-card:hover {
-  border-color: var(--card-hover-border);
+  border-color: rgba(212, 168, 67, 0.15);
   transform: translateX(4px);
 }
 
@@ -618,7 +575,7 @@ main {
 }
 
 .timeline-card p {
-  color: var(--text-muted);
+  color: var(--white-soft);
   font-size: 0.95rem;
 }
 
@@ -629,7 +586,7 @@ main {
 
 .timeline-card ul li {
   padding: 0.3rem 0;
-  color: var(--text-muted);
+  color: var(--white-soft);
   font-size: 0.95rem;
   padding-left: 1.2rem;
   position: relative;
@@ -657,11 +614,11 @@ main {
   margin-top: 0.75rem;
 }
 
-.tag-travel { background: var(--tag-travel-bg); color: var(--tag-travel-color); }
-.tag-snow { background: var(--tag-snow-bg); color: var(--tag-snow-color); }
-.tag-golf { background: var(--tag-golf-bg); color: var(--tag-golf-color); }
-.tag-party { background: var(--tag-party-bg); color: var(--tag-party-color); }
-.tag-chill { background: var(--tag-chill-bg); color: var(--tag-chill-color); }
+.tag-travel { background: rgba(56, 189, 248, 0.15); color: #7dd3fc; }
+.tag-snow { background: rgba(167, 139, 250, 0.15); color: #c4b5fd; }
+.tag-golf { background: rgba(74, 222, 128, 0.15); color: #86efac; }
+.tag-party { background: rgba(251, 146, 60, 0.15); color: #fdba74; }
+.tag-chill { background: rgba(212, 168, 67, 0.15); color: var(--gold-light); }
 
 /* ===== CREW GRID ===== */
 .crew-grid {
@@ -673,8 +630,8 @@ main {
 }
 
 .crew-card {
-  background: var(--card-bg);
-  border: 1px solid var(--border-color);
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
   border-radius: var(--radius);
   padding: 2rem 1rem;
   text-align: center;
@@ -684,14 +641,14 @@ main {
 }
 
 .crew-card:hover {
-  border-color: var(--card-hover-border);
+  border-color: rgba(212, 168, 67, 0.2);
   transform: translateY(-4px);
   box-shadow: var(--shadow);
 }
 
 .crew-card.groom {
-  border-color: var(--gold-border);
-  background: linear-gradient(135deg, var(--gold-bg), var(--card-bg));
+  border-color: rgba(212, 168, 67, 0.3);
+  background: linear-gradient(135deg, rgba(212, 168, 67, 0.08), var(--glass));
 }
 
 .crew-card.groom::before {
@@ -708,8 +665,8 @@ main {
   width: 72px;
   height: 72px;
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--bg-card), var(--bg-surface));
-  border: 2px solid var(--border-color);
+  background: linear-gradient(135deg, var(--navy-mid), var(--navy-light));
+  border: 2px solid var(--glass-border);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -722,7 +679,7 @@ main {
 
 .crew-card.groom .crew-avatar {
   border-color: var(--gold);
-  background: linear-gradient(135deg, var(--gold-bg), var(--bg-card));
+  background: linear-gradient(135deg, rgba(212, 168, 67, 0.2), var(--navy-mid));
 }
 
 .crew-card h3 {
@@ -739,7 +696,7 @@ main {
 }
 
 .crew-placeholder {
-  color: var(--text-muted);
+  color: var(--white-soft);
   opacity: 0.5;
   font-style: italic;
   font-size: 0.85rem;
@@ -764,15 +721,15 @@ main {
 }
 
 .activity-card {
-  background: var(--card-bg);
-  border: 1px solid var(--border-color);
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
   border-radius: var(--radius-lg);
   overflow: hidden;
   transition: all var(--transition);
 }
 
 .activity-card:hover {
-  border-color: var(--card-hover-border);
+  border-color: rgba(212, 168, 67, 0.2);
   transform: translateY(-4px);
   box-shadow: var(--shadow);
 }
@@ -788,11 +745,11 @@ main {
 }
 
 .activity-banner.snow {
-  background: var(--snow-banner);
+  background: linear-gradient(135deg, #1e3a5f, #0f1f3d);
 }
 
 .activity-banner.golf {
-  background: var(--golf-banner);
+  background: linear-gradient(135deg, #1a3d2e, #0f2a1a);
 }
 
 .activity-banner::after {
@@ -823,7 +780,7 @@ main {
 }
 
 .activity-body p {
-  color: var(--text-muted);
+  color: var(--white-soft);
   font-size: 0.95rem;
   margin-bottom: 1rem;
 }
@@ -837,11 +794,11 @@ main {
 
 .activity-details li {
   padding: 0.35rem 0.8rem;
-  background: var(--pill-bg);
+  background: rgba(255, 255, 255, 0.05);
   border-radius: 100px;
   font-size: 0.8rem;
-  color: var(--text-muted);
-  border: 1px solid var(--border-color);
+  color: var(--white-soft);
+  border: 1px solid var(--glass-border);
 }
 
 /* ===== APRES / NIGHTLIFE ===== */
@@ -852,15 +809,15 @@ main {
 }
 
 .nightlife-card {
-  background: var(--card-bg);
-  border: 1px solid var(--border-color);
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
   border-radius: var(--radius);
   padding: 1.5rem;
   transition: all var(--transition);
 }
 
 .nightlife-card:hover {
-  border-color: var(--card-hover-border);
+  border-color: rgba(212, 168, 67, 0.15);
   transform: translateY(-2px);
 }
 
@@ -875,7 +832,7 @@ main {
 }
 
 .nightlife-card p {
-  color: var(--text-muted);
+  color: var(--white-soft);
   font-size: 0.9rem;
 }
 
@@ -893,15 +850,15 @@ main {
   display: flex;
   align-items: flex-start;
   gap: 1.25rem;
-  background: var(--card-bg);
-  border: 1px solid var(--border-color);
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
   border-radius: var(--radius);
   padding: 1.25rem 1.5rem;
   transition: all var(--transition);
 }
 
 .rules-item:hover {
-  border-color: var(--card-hover-border);
+  border-color: rgba(212, 168, 67, 0.2);
   transform: translateX(4px);
 }
 
@@ -922,7 +879,7 @@ main {
 }
 
 .rules-item p {
-  color: var(--text-muted);
+  color: var(--white-soft);
   font-size: 0.9rem;
   margin: 0;
 }
@@ -933,8 +890,8 @@ main {
   justify-content: center;
   gap: 0;
   margin-bottom: 3rem;
-  background: var(--card-bg);
-  border: 1px solid var(--border-color);
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
   border-radius: 100px;
   padding: 4px;
   width: fit-content;
@@ -947,7 +904,7 @@ main {
   border: none;
   border-radius: 100px;
   background: transparent;
-  color: var(--text-muted);
+  color: var(--white-soft);
   font-family: inherit;
   font-size: 0.9rem;
   font-weight: 600;
@@ -957,7 +914,7 @@ main {
 
 .price-toggle-btn.active {
   background: linear-gradient(135deg, var(--gold), var(--gold-dim));
-  color: var(--bg-page);
+  color: var(--navy);
 }
 
 .flights-grid {
@@ -968,8 +925,8 @@ main {
 }
 
 .flight-card {
-  background: var(--card-bg);
-  border: 1px solid var(--border-color);
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
   border-radius: var(--radius-lg);
   overflow: hidden;
   transition: all var(--transition);
@@ -979,7 +936,7 @@ main {
 }
 
 .flight-card:hover {
-  border-color: var(--card-hover-border);
+  border-color: rgba(212, 168, 67, 0.2);
   transform: translateY(-4px);
   box-shadow: var(--shadow);
 }
@@ -997,15 +954,15 @@ main {
 }
 
 .badge-premium {
-  background: var(--gold-bg);
+  background: rgba(212, 168, 67, 0.2);
   color: var(--gold-light);
-  border: 1px solid var(--gold-border);
+  border: 1px solid rgba(212, 168, 67, 0.3);
 }
 
 .badge-budget {
-  background: var(--badge-budget-bg);
-  color: var(--badge-budget-color);
-  border: 1px solid var(--badge-budget-border);
+  background: rgba(74, 222, 128, 0.15);
+  color: #86efac;
+  border: 1px solid rgba(74, 222, 128, 0.25);
 }
 
 .flight-card-header {
@@ -1018,7 +975,7 @@ main {
 }
 
 .flight-subtitle {
-  color: var(--text-muted);
+  color: var(--white-soft);
   font-size: 0.85rem;
   font-style: italic;
 }
@@ -1064,13 +1021,13 @@ main {
 .flight-code {
   font-size: 0.95rem;
   font-weight: 700;
-  color: var(--text-primary);
+  color: var(--white);
   letter-spacing: 0.05em;
 }
 
 .flight-city {
   font-size: 0.7rem;
-  color: var(--text-muted);
+  color: var(--white-soft);
   margin-top: 0.1rem;
 }
 
@@ -1085,34 +1042,34 @@ main {
 
 .flight-duration {
   font-size: 0.75rem;
-  color: var(--text-muted);
+  color: var(--white-soft);
   font-weight: 500;
 }
 
 .flight-line {
   width: 100%;
   height: 0;
-  border-top: 1px solid var(--border-color);
+  border-top: 1px solid var(--glass-border);
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .flight-direct-badge {
-  background: var(--bg-page);
+  background: var(--navy);
   padding: 0.15rem 0.5rem;
   border-radius: 100px;
   font-size: 0.65rem;
   font-weight: 600;
-  color: var(--badge-budget-color);
-  border: 1px solid var(--badge-budget-border);
+  color: #86efac;
+  border: 1px solid rgba(74, 222, 128, 0.25);
   text-transform: uppercase;
   letter-spacing: 0.06em;
 }
 
 .flight-number {
   font-size: 0.7rem;
-  color: var(--text-muted);
+  color: var(--white-soft);
   font-weight: 500;
 }
 
@@ -1121,20 +1078,20 @@ main {
   justify-content: space-between;
   margin-top: 0.75rem;
   font-size: 0.75rem;
-  color: var(--text-muted);
+  color: var(--white-soft);
   opacity: 0.7;
 }
 
 .flight-divider {
   height: 1px;
-  background: var(--border-color);
+  background: var(--glass-border);
   margin: 0.5rem 0;
 }
 
 .flight-price {
   padding: 1.25rem 1.75rem;
-  border-top: 1px solid var(--border-color);
-  background: var(--flight-price-bg);
+  border-top: 1px solid var(--glass-border);
+  background: rgba(255, 255, 255, 0.02);
 }
 
 .price-cash,
@@ -1152,7 +1109,7 @@ main {
 
 .price-label {
   font-size: 0.8rem;
-  color: var(--text-muted);
+  color: var(--white-soft);
 }
 
 /* Toggle visibility */
@@ -1178,15 +1135,15 @@ body.show-points .price-points {
 }
 
 .flight-info-box {
-  background: var(--card-bg);
-  border: 1px solid var(--border-color);
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
   border-radius: var(--radius);
   padding: 1.5rem;
 }
 
 .flight-info-box.warning {
-  border-color: var(--warning-border);
-  background: var(--warning-bg);
+  border-color: rgba(251, 146, 60, 0.3);
+  background: rgba(251, 146, 60, 0.05);
 }
 
 .flight-info-box h3 {
@@ -1195,12 +1152,12 @@ body.show-points .price-points {
 }
 
 .flight-info-box p {
-  color: var(--text-muted);
+  color: var(--white-soft);
   font-size: 0.9rem;
 }
 
 .flight-info-box p strong {
-  color: var(--text-primary);
+  color: var(--white);
 }
 
 .flights-warning-text {
@@ -1257,11 +1214,11 @@ body.show-points .price-points {
   align-items: center;
   gap: 0.4rem;
   padding: 0.5rem 1rem;
-  background: var(--card-bg);
-  border: 1px solid var(--border-color);
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
   border-radius: 100px;
   font-size: 0.85rem;
-  color: var(--text-muted);
+  color: var(--white-soft);
 }
 
 .info-chip .icon {
@@ -1272,9 +1229,9 @@ body.show-points .price-points {
 .footer {
   text-align: center;
   padding: 3rem 1.5rem;
-  color: var(--text-muted);
+  color: var(--white-soft);
   font-size: 0.85rem;
-  border-top: 1px solid var(--border-color);
+  border-top: 1px solid var(--glass-border);
   margin-top: 4rem;
 }
 
@@ -1287,9 +1244,9 @@ body.show-points .price-points {
 .mob-hamburger {
   display: none;
   position: fixed;
-  top: 16px;
+  top: 12px;
   right: 16px;
-  z-index: 1000;
+  z-index: 1100;
   background: #0d1b2e;
   border: 1px solid #f59e0b;
   border-radius: 8px;
@@ -1319,15 +1276,23 @@ body.show-points .price-points {
   align-items: center;
   justify-content: center;
   gap: 1.5rem;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(-20px);
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
 }
 
 .mob-overlay.open {
-  display: flex;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0);
 }
 
 .mob-overlay-close {
   position: absolute;
-  top: 16px;
+  top: 12px;
   right: 16px;
   background: #0d1b2e;
   border: 1px solid #f59e0b;
@@ -1345,7 +1310,7 @@ body.show-points .price-points {
 }
 
 .mob-overlay a {
-  color: var(--text-primary);
+  color: var(--white);
   font-size: 1.4rem;
   font-weight: 600;
   text-decoration: none;
@@ -1366,6 +1331,10 @@ body.show-points .price-points {
 /* ===== MOBILE LAYOUT ===== */
 @media (max-width: 768px) {
   .mob-hamburger {
+    display: flex;
+  }
+
+  .mob-overlay {
     display: flex;
   }
 
@@ -1465,11 +1434,11 @@ body.show-points .price-points {
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--scrollbar-track);
+  background: var(--navy);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--scrollbar-thumb);
+  background: var(--navy-mid);
   border-radius: 4px;
 }
 
