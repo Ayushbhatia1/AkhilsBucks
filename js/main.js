@@ -1,24 +1,3 @@
-// ===== THEME TOGGLE =====
-(function () {
-  function setTheme(theme) {
-    document.documentElement.setAttribute('data-theme', theme);
-    localStorage.setItem('theme', theme);
-  }
-
-  function toggleTheme() {
-    var current = document.documentElement.getAttribute('data-theme') || 'dark';
-    setTheme(current === 'dark' ? 'light' : 'dark');
-  }
-
-  // Bind desktop toggle
-  var desktopBtn = document.getElementById('theme-toggle');
-  if (desktopBtn) desktopBtn.addEventListener('click', toggleTheme);
-
-  // Bind mobile toggle
-  var mobileBtn = document.getElementById('mob-theme-toggle');
-  if (mobileBtn) mobileBtn.addEventListener('click', toggleTheme);
-})();
-
 // ===== COUNTDOWN TIMER =====
 (function () {
   const TARGET = new Date('2026-08-13T00:00:00+12:00'); // NZST

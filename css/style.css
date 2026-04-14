@@ -48,44 +48,10 @@
   --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-[data-theme="light"] {
-  --bg-page: #f4f7fb;
-  --bg-surface: #ffffff;
-  --bg-card: #ffffff;
-  --text-primary: #0d1b2e;
-  --text-muted: #64748b;
-  --border-color: rgba(0, 0, 0, 0.1);
-  --card-bg: rgba(0, 0, 0, 0.03);
-  --card-hover-border: rgba(180, 130, 30, 0.3);
-  --gold: #b8860b;
-  --gold-light: #d4a020;
-  --gold-dim: #8a6508;
-  --gold-border: rgba(180, 130, 30, 0.3);
-  --gold-bg: rgba(180, 130, 30, 0.08);
-  --tag-travel-bg: rgba(56, 189, 248, 0.1); --tag-travel-color: #0284c7;
-  --tag-snow-bg: rgba(167, 139, 250, 0.1); --tag-snow-color: #7c3aed;
-  --tag-golf-bg: rgba(74, 222, 128, 0.1); --tag-golf-color: #16a34a;
-  --tag-party-bg: rgba(251, 146, 60, 0.1); --tag-party-color: #ea580c;
-  --tag-chill-bg: rgba(180, 130, 30, 0.1); --tag-chill-color: var(--gold);
-  --badge-budget-bg: rgba(74, 222, 128, 0.1); --badge-budget-color: #16a34a; --badge-budget-border: rgba(74, 222, 128, 0.3);
-  --snow-banner: linear-gradient(135deg, #b8d4f0, #8ab4dc);
-  --golf-banner: linear-gradient(135deg, #a8d8b8, #7cc08c);
-  --warning-border: rgba(251, 146, 60, 0.4); --warning-bg: rgba(251, 146, 60, 0.06);
-  --pill-bg: rgba(0, 0, 0, 0.05);
-  --flight-price-bg: rgba(0, 0, 0, 0.02);
-  --nav-bg: rgba(10, 14, 26, 0.95);
-  --hero-bg: #0d1b2e;
-  --snowflake-color: rgba(13, 27, 46, 0.15);
-  --speech-bg: #0d1b2e;
-  --speech-color: #f1f1f1;
-  --shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-  --scrollbar-track: #e8ecf2;
-  --scrollbar-thumb: #c0c8d4;
-}
-
 html {
   scroll-behavior: smooth;
   font-size: 16px;
+  background: #0d1b2e;
 }
 
 body {
@@ -95,7 +61,6 @@ body {
   line-height: 1.6;
   min-height: 100vh;
   overflow-x: hidden;
-  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* ===== BACKGROUND TEXTURE ===== */
@@ -147,6 +112,23 @@ a:hover {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Full-width nav background behind centred content */
+.navbar::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 64px;
+  background: var(--nav-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border-color);
+  z-index: -1;
 }
 
 .nav-brand {
@@ -171,6 +153,7 @@ a:hover {
   display: flex;
   gap: 0.25rem;
   list-style: none;
+  margin-left: auto;
 }
 
 .nav-links a {
@@ -1300,87 +1283,13 @@ body.show-points .price-points {
   font-weight: 600;
 }
 
-/* ===== THEME TOGGLE ===== */
-.theme-toggle {
-  background: var(--card-bg);
-  border: 1px solid var(--gold);
-  border-radius: 8px;
-  padding: 0.4rem;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 36px;
-  height: 36px;
-  margin-left: 0.5rem;
-  transition: background var(--transition);
-  -webkit-tap-highlight-color: transparent;
-}
-
-.theme-toggle:hover {
-  background: var(--gold-bg);
-}
-
-.theme-toggle svg {
-  width: 18px;
-  height: 18px;
-  fill: var(--gold);
-}
-
-.theme-toggle .icon-sun { display: none; }
-.theme-toggle .icon-moon { display: block; }
-
-[data-theme="light"] .theme-toggle .icon-sun { display: block; }
-[data-theme="light"] .theme-toggle .icon-moon { display: none; }
-
-/* Mobile theme toggle */
-.mob-theme-toggle {
-  display: none;
-  position: fixed;
-  top: 12px;
-  right: 64px;
-  z-index: 1100;
-  background: #0d1b2e;
-  border: 1px solid #f59e0b;
-  border-radius: 8px;
-  padding: 0.4rem;
-  cursor: pointer;
-  align-items: center;
-  justify-content: center;
-  width: 44px;
-  height: 44px;
-  -webkit-tap-highlight-color: transparent;
-}
-
-.mob-theme-toggle svg {
-  width: 20px;
-  height: 20px;
-  fill: #f59e0b;
-}
-
-.mob-theme-toggle .icon-sun { display: none; }
-.mob-theme-toggle .icon-moon { display: block; }
-
-[data-theme="light"] .mob-theme-toggle .icon-sun { display: block; }
-[data-theme="light"] .mob-theme-toggle .icon-moon { display: none; }
-
-/* Light mode: keep hero/nav dark, lighten content areas */
-[data-theme="light"] .section,
-[data-theme="light"] .footer {
-  background: var(--bg-page);
-}
-
-[data-theme="light"] body::before {
-  background: none;
-}
-
 /* ===== MOBILE HAMBURGER + OVERLAY ===== */
 .mob-hamburger {
   display: none;
   position: fixed;
-  top: 12px;
+  top: 16px;
   right: 16px;
-  z-index: 1100;
+  z-index: 1000;
   background: #0d1b2e;
   border: 1px solid #f59e0b;
   border-radius: 8px;
@@ -1418,7 +1327,7 @@ body.show-points .price-points {
 
 .mob-overlay-close {
   position: absolute;
-  top: 12px;
+  top: 16px;
   right: 16px;
   background: #0d1b2e;
   border: 1px solid #f59e0b;
@@ -1458,14 +1367,6 @@ body.show-points .price-points {
 @media (max-width: 768px) {
   .mob-hamburger {
     display: flex;
-  }
-
-  .mob-theme-toggle {
-    display: flex;
-  }
-
-  .theme-toggle {
-    display: none;
   }
 
   .nav-links {
