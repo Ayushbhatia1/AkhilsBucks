@@ -24,6 +24,20 @@
   --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+[data-theme="light"] {
+  --navy: #f5f5f0;
+  --navy-light: #eaeae4;
+  --navy-mid: #ddddd7;
+  --gold: #b8922e;
+  --gold-light: #a07d1e;
+  --gold-dim: #8a6a1a;
+  --white: #1a1a1a;
+  --white-soft: #4a4a4a;
+  --glass: rgba(0, 0, 0, 0.03);
+  --glass-border: rgba(0, 0, 0, 0.08);
+  --shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+}
+
 html {
   scroll-behavior: smooth;
   font-size: 16px;
@@ -79,7 +93,7 @@ a:hover {
   right: 0;
   width: 100%;
   z-index: 1000;
-  background: #0a0e1a;
+  background: var(--navy);
   border-bottom: 1px solid var(--glass-border);
   padding: 0 2rem;
   height: 64px;
@@ -203,8 +217,8 @@ main {
   position: absolute;
   top: -10px;
   left: 100px;
-  background: white;
-  color: #0a0e1a;
+  background: var(--white);
+  color: var(--navy);
   font-family: 'Inter', sans-serif;
   font-size: 0.7rem;
   font-weight: 700;
@@ -224,7 +238,7 @@ main {
   height: 0;
   border-left: 6px solid transparent;
   border-right: 6px solid transparent;
-  border-top: 7px solid white;
+  border-top: 7px solid var(--white);
 }
 
 .hero-boarder .hb-svg {
@@ -304,7 +318,7 @@ main {
 
 .hero-snowfall .hs-flake {
   position: absolute;
-  background: white;
+  background: var(--white);
   border-radius: 50%;
   animation: hs-fall linear infinite;
   will-change: transform;
@@ -793,7 +807,7 @@ main {
 
 .activity-details li {
   padding: 0.35rem 0.8rem;
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--glass);
   border-radius: 100px;
   font-size: 0.8rem;
   color: var(--white-soft);
@@ -1090,7 +1104,7 @@ main {
 .flight-price {
   padding: 1.25rem 1.75rem;
   border-top: 1px solid var(--glass-border);
-  background: rgba(255, 255, 255, 0.02);
+  background: var(--glass);
 }
 
 .price-cash,
@@ -1246,8 +1260,8 @@ body.show-points .price-points {
   top: 12px;
   right: 16px;
   z-index: 1100;
-  background: #0d1b2e;
-  border: 1px solid #f59e0b;
+  background: var(--navy-light);
+  border: 1px solid var(--gold);
   border-radius: 8px;
   padding: 10px 9px;
   cursor: pointer;
@@ -1261,7 +1275,7 @@ body.show-points .price-points {
   display: block;
   width: 24px;
   height: 2px;
-  background: #fff;
+  background: var(--white);
   border-radius: 1px;
 }
 
@@ -1270,7 +1284,7 @@ body.show-points .price-points {
   position: fixed;
   inset: 0;
   z-index: 1099;
-  background: #0d1b2e;
+  background: var(--navy-light);
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -1293,10 +1307,10 @@ body.show-points .price-points {
   position: absolute;
   top: 12px;
   right: 16px;
-  background: #0d1b2e;
-  border: 1px solid #f59e0b;
+  background: var(--navy-light);
+  border: 1px solid var(--gold);
   border-radius: 8px;
-  color: #fff;
+  color: var(--white);
   font-size: 1.5rem;
   width: 44px;
   height: 44px;
@@ -1426,6 +1440,111 @@ body.show-points .price-points {
 .fade-in:nth-child(4) { animation-delay: 0.3s; }
 .fade-in:nth-child(5) { animation-delay: 0.4s; }
 .fade-in:nth-child(6) { animation-delay: 0.5s; }
+
+/* ===== THEME TOGGLE ===== */
+.theme-toggle {
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  border-radius: 8px;
+  padding: 6px;
+  cursor: pointer;
+  color: var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition);
+  margin-left: 0.5rem;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.theme-toggle:hover {
+  background: rgba(212, 168, 67, 0.1);
+  border-color: rgba(212, 168, 67, 0.3);
+}
+
+.theme-icon.sun { display: none; }
+.theme-icon.moon { display: block; }
+[data-theme="light"] .theme-icon.sun { display: block; }
+[data-theme="light"] .theme-icon.moon { display: none; }
+
+/* Mobile overlay theme toggle link */
+.mob-overlay .mob-theme-link {
+  color: var(--gold);
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--glass-border);
+  border-radius: 8px;
+  cursor: pointer;
+  background: var(--glass);
+  margin-top: 1rem;
+  text-decoration: none;
+  transition: all var(--transition);
+}
+
+@media (max-width: 768px) {
+  .theme-toggle { display: none; }
+}
+
+/* ===== LIGHT MODE OVERRIDES ===== */
+
+/* Smooth transition on theme change */
+html[data-theme] body,
+html[data-theme] .navbar,
+html[data-theme] .mob-overlay,
+html[data-theme] .mob-hamburger,
+html[data-theme] .mob-overlay-close {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Body texture — reduce in light mode */
+[data-theme="light"] body::before {
+  opacity: 0.3;
+}
+
+/* Activity banners */
+[data-theme="light"] .activity-banner.snow {
+  background: linear-gradient(135deg, #d0e4f7, #b8d4f0);
+}
+[data-theme="light"] .activity-banner.golf {
+  background: linear-gradient(135deg, #c8e6d0, #a8d8b4);
+}
+
+/* Timeline tag text colours — darken for light bg */
+[data-theme="light"] .tag-travel { color: #0c6ea8; }
+[data-theme="light"] .tag-snow { color: #5b48a0; }
+[data-theme="light"] .tag-golf { color: #1a7a3a; }
+[data-theme="light"] .tag-party { color: #a0521a; }
+
+/* Flight badges — darken text for light bg */
+[data-theme="light"] .badge-budget { color: #1a7a3a; }
+[data-theme="light"] .flight-direct-badge { color: #1a7a3a; }
+
+/* Hero snowboarder — filter for light mode */
+[data-theme="light"] .hero-boarder {
+  filter: invert(0.85) hue-rotate(180deg);
+  opacity: 0.4;
+}
+
+/* Hero snowflakes — dark particles on light bg */
+[data-theme="light"] .hero-snowfall .hs-flake {
+  background: rgba(0, 0, 0, 0.15);
+}
+
+/* Hero mountains */
+[data-theme="light"] .hero-mountains polygon:first-child { fill: #d0d0c8; }
+[data-theme="light"] .hero-mountains polygon:last-child { fill: #c0c0b8; }
+
+/* Hero pattern overlay */
+[data-theme="light"] .hero::before {
+  opacity: 0;
+}
+
+/* Nav hover in light mode */
+[data-theme="light"] .nav-links a:hover,
+[data-theme="light"] .nav-links a.active {
+  background: rgba(184, 146, 46, 0.12);
+}
 
 /* Scrollbar */
 ::-webkit-scrollbar {

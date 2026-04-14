@@ -1,3 +1,29 @@
+// ===== THEME TOGGLE =====
+(function () {
+  var KEY = 'akhilsbucks-theme';
+
+  function getPreferred() {
+    return localStorage.getItem(KEY) || 'dark';
+  }
+
+  function applyTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem(KEY, theme);
+  }
+
+  applyTheme(getPreferred());
+
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.theme-toggle, .mob-theme-link').forEach(function (btn) {
+      btn.addEventListener('click', function (e) {
+        e.preventDefault();
+        var current = document.documentElement.getAttribute('data-theme') || 'dark';
+        applyTheme(current === 'dark' ? 'light' : 'dark');
+      });
+    });
+  });
+})();
+
 // ===== COUNTDOWN TIMER =====
 (function () {
   const TARGET = new Date('2026-08-13T00:00:00+12:00'); // NZST
