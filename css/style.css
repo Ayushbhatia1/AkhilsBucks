@@ -1335,6 +1335,7 @@ body.show-points .price-points {
 }
 
 .mob-overlay.open {
+  display: flex;
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
@@ -1382,10 +1383,6 @@ body.show-points .price-points {
 /* ===== MOBILE LAYOUT ===== */
 @media (max-width: 768px) {
   .mob-hamburger {
-    display: flex;
-  }
-
-  .mob-overlay {
     display: flex;
   }
 
