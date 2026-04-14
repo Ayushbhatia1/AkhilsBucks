@@ -169,3 +169,47 @@
 
   document.querySelectorAll('.observe').forEach((el) => observer.observe(el));
 })();
+
+// ===== SNOWBOARDING INFO MODAL =====
+(function () {
+  var openBtn = document.getElementById('snow-modal-open');
+  var modal = document.getElementById('snow-modal');
+  var closeBtn = document.getElementById('snow-modal-close');
+
+  if (!openBtn || !modal) return;
+
+  function openModal() {
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    modal.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  openBtn.addEventListener('click', openModal);
+  closeBtn.addEventListener('click', closeModal);
+
+  modal.addEventListener('click', function (e) {
+    if (e.target === modal) closeModal();
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
+  });
+
+  // Tabs
+  var tabs = modal.querySelectorAll('.modal-tab');
+  var panels = modal.querySelectorAll('.modal-panel');
+
+  tabs.forEach(function (tab) {
+    tab.addEventListener('click', function () {
+      tabs.forEach(function (t) { t.classList.remove('active'); });
+      panels.forEach(function (p) { p.classList.remove('active'); });
+      tab.classList.add('active');
+      var target = document.getElementById('tab-' + tab.dataset.tab);
+      if (target) target.classList.add('active');
+    });
+  });
+})();

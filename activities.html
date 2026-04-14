@@ -78,6 +78,7 @@
                 <li>Beginner lessons (no shame)</li>
                 <li>Akhil wipeout counter: TBD</li>
               </ul>
+              <button class="cta" id="snow-modal-open" style="margin-top:1.25rem;font-size:0.85rem;padding:0.7rem 1.5rem">Passes, Gear &amp; Lessons &rarr;</button>
             </div>
           </div>
 
@@ -159,6 +160,119 @@
   <footer class="footer">
     <p><span class="gold">Akhil's Bucks</span> &mdash; Queenstown, NZ &mdash; August 2026</p>
   </footer>
+
+  <!-- SNOWBOARDING INFO MODAL -->
+  <div class="modal-backdrop" id="snow-modal">
+    <div class="modal">
+      <button class="modal-close" id="snow-modal-close">&times;</button>
+      <h2 class="modal-title">Snowboarding <span class="gold">Info</span></h2>
+      <p class="modal-subtitle">Everything you need to know. All prices in NZD.</p>
+
+      <div class="modal-tabs">
+        <button class="modal-tab active" data-tab="passes">Lift Passes</button>
+        <button class="modal-tab" data-tab="rental">Rental</button>
+        <button class="modal-tab" data-tab="lessons">Lessons</button>
+        <button class="modal-tab" data-tab="transport">Transport</button>
+      </div>
+
+      <!-- LIFT PASSES -->
+      <div class="modal-panel active" id="tab-passes">
+        <div class="modal-price-grid">
+          <div class="modal-price-card">
+            <span class="modal-price-label">1 Day</span>
+            <span class="modal-price-amount">$180</span>
+            <span class="modal-price-sub">per person</span>
+          </div>
+          <div class="modal-price-card">
+            <span class="modal-price-label">2 Days</span>
+            <span class="modal-price-amount">$170</span>
+            <span class="modal-price-sub">per day</span>
+          </div>
+          <div class="modal-price-card highlight">
+            <span class="modal-price-label">3 Days</span>
+            <span class="modal-price-amount">$145</span>
+            <span class="modal-price-sub">per day &mdash; best value</span>
+          </div>
+        </div>
+        <ul class="modal-list">
+          <li>Valid at <strong>Coronet Peak</strong>, <strong>The Remarkables</strong> and <strong>Mt Hutt</strong></li>
+          <li>Hours: 9am &ndash; 4pm daily</li>
+          <li>Coronet Peak Night Ski: 1pm &ndash; 9pm (Wednesdays &amp; Fridays, 24 Jun &ndash; 4 Sep)</li>
+        </ul>
+        <div class="modal-callout gold-callout">
+          <strong>Night Ski available &mdash; Friday 14 Aug!</strong>
+          <p>Our second snow day at Coronet Peak falls on a Night Ski night. Ride until 9pm under lights.</p>
+        </div>
+        <p class="modal-link">Book at <a href="https://www.coronetpeak.co.nz/passes-packages" target="_blank" rel="noopener">coronetpeak.co.nz/passes-packages</a></p>
+      </div>
+
+      <!-- EQUIPMENT RENTAL -->
+      <div class="modal-panel" id="tab-rental">
+        <div class="modal-rental-grid">
+          <div class="modal-rental-card">
+            <h3>Recreational</h3>
+            <p class="modal-rental-tier">Beginners &amp; Novices</p>
+            <ul class="modal-list">
+              <li>Snowboard or skis, boots, poles or wristguards, helmet</li>
+              <li>Pickup: on-mountain OR Snow Centre, 25 Shotover St, Queenstown</li>
+              <li>Collect afternoon before &mdash; recommended</li>
+            </ul>
+            <p class="modal-note"><strong>Not included:</strong> goggles, gloves (buy on mountain), jacket &amp; pants (hire separately)</p>
+          </div>
+          <div class="modal-rental-card">
+            <h3>Performance</h3>
+            <p class="modal-rental-tier">Intermediate to Expert</p>
+            <ul class="modal-list">
+              <li>Latest high-end gear from top brands</li>
+              <li>On-mountain pickup only</li>
+              <li>Stock is limited &mdash; book in advance</li>
+            </ul>
+            <p class="modal-note"><strong>Not included:</strong> goggles, gloves, clothing</p>
+          </div>
+        </div>
+        <p class="modal-link">Exact pricing varies by days booked (improves with more days). Book at <a href="https://shop.coronetpeak.co.nz" target="_blank" rel="noopener">shop.coronetpeak.co.nz</a></p>
+        <p class="modal-note" style="margin-top:0.75rem">Already have some gear? Talk to Guest Services for part-set rentals.</p>
+      </div>
+
+      <!-- LESSONS -->
+      <div class="modal-panel" id="tab-lessons">
+        <div class="modal-price-grid" style="grid-template-columns:1fr">
+          <div class="modal-price-card">
+            <span class="modal-price-label">Full Day Lesson</span>
+            <span class="modal-price-amount">$199</span>
+            <span class="modal-price-sub">per person &mdash; 10am to 3:30pm (50 min lunch break)</span>
+          </div>
+        </div>
+        <ul class="modal-list">
+          <li>Check in by <strong>9:45am</strong> with all gear and pass ready</li>
+          <li><strong>The Remarkables:</strong> meet outside base building by lesson flags on snow</li>
+          <li><strong>Coronet Peak:</strong> opposite Meadows Express, Snowsports meeting area</li>
+        </ul>
+        <p class="modal-link">Book at <a href="https://www.coronetpeak.co.nz/passes-packages" target="_blank" rel="noopener">coronetpeak.co.nz/passes-packages</a></p>
+      </div>
+
+      <!-- TRANSPORT -->
+      <div class="modal-panel" id="tab-transport">
+        <h3>Coronet Peak</h3>
+        <ul class="modal-list">
+          <li>Departs <strong>9 Duke St</strong>, central Queenstown, regularly 7:30am &ndash; 11am</li>
+          <li>Night Ski bus: departs on the hour at 12pm, 3pm, 4pm, 5pm, 6pm</li>
+          <li>Returns from 1pm onwards as buses fill</li>
+          <li>Night Ski returns: 6:30pm, 7:30pm, 8:30pm, 9pm</li>
+        </ul>
+        <h3 style="margin-top:1.5rem">The Remarkables</h3>
+        <ul class="modal-list">
+          <li>Departs <strong>9 Duke St</strong>, 7:30am &ndash; 9am then 10am</li>
+          <li>Also departs from <strong>Frankton</strong> (opposite Frankton Bus Hub) 7:45am &ndash; 11:15am</li>
+        </ul>
+        <div class="modal-callout">
+          <strong>Pro tip</strong>
+          <p>Collect your gear from the Snow Centre (25 Shotover St) the afternoon before your ski day. Way less stress than sorting it on the mountain the morning of.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
 
   <script src="js/main.js"></script>
 </body>
