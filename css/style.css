@@ -1679,6 +1679,36 @@ html[data-theme] .mob-overlay-close {
   background: rgba(251, 146, 60, 0.06);
 }
 
+/* ===== COMING SOON ===== */
+.coming-soon-wrap {
+  text-align: center;
+  max-width: 550px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+}
+
+.coming-soon-icon {
+  font-size: 4rem;
+  margin-bottom: 1.5rem;
+}
+
+.coming-soon-wrap h2 {
+  color: var(--gold);
+  margin-bottom: 1rem;
+}
+
+.coming-soon-wrap p {
+  color: var(--white-soft);
+  font-size: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.coming-soon-sub {
+  font-size: 0.85rem !important;
+  font-style: italic;
+  opacity: 0.7;
+}
+
 /* ===== MODAL ===== */
 .modal-backdrop {
   display: none;

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accommodation — Akhil's Bucks Trip</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script>(function(){var t=localStorage.getItem('akhilsbucks-theme')||'dark';document.documentElement.setAttribute('data-theme',t)})()</script>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="navbar">
+    <a href="index.html" class="nav-brand">Akhil's Bucks <span>Queenstown '26</span></a>
+    <div class="nav-right">
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="schedule.html">Schedule</a></li>
+        <li><a href="crew.html">The Crew</a></li>
+        <li><a href="activities.html">Activities</a></li>
+        <li><a href="flights.html">Flights</a></li>
+        <li><a href="accommodation.html">Accommodation</a></li>
+      </ul>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark theme">
+        <svg class="theme-icon sun" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+        <svg class="theme-icon moon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile nav -->
+  <button class="mob-hamburger" id="mob-hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+  <div class="mob-overlay" id="mob-overlay">
+    <button class="mob-overlay-close" id="mob-close" aria-label="Close menu">&times;</button>
+    <a href="index.html">Home</a>
+    <a href="schedule.html">Schedule</a>
+    <a href="crew.html">The Crew</a>
+    <a href="activities.html">Activities</a>
+    <a href="flights.html">Flights</a>
+    <a href="accommodation.html">Accommodation</a>
+    <button class="mob-theme-link" aria-label="Toggle theme">
+      <svg class="theme-icon sun" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+      <svg class="theme-icon moon" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+  </div>
+
+  <main>
+    <section class="page-hero">
+      <h1>The <span class="gold">Accommodation</span></h1>
+      <p>Where 16 blokes will attempt to coexist for 5 nights.</p>
+      <div class="section-divider"></div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="coming-soon-wrap">
+          <div class="coming-soon-icon">&#127968;</div>
+          <h2>Coming Soon</h2>
+          <p>We're still locking in the perfect spot. Expect arguments over rooms, zero privacy, and someone sleeping on the couch by night two.</p>
+          <p class="coming-soon-sub">Check back soon &mdash; or don't. You'll find out when Akhil sends 47 messages to the group chat about it.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p><span class="gold">Akhil's Bucks</span> &mdash; Queenstown, NZ &mdash; August 2026</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
