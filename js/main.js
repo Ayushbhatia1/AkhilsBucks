@@ -26,7 +26,7 @@
 
 // ===== COUNTDOWN TIMER =====
 (function () {
-  const TARGET = new Date('2026-08-13T00:00:00+12:00'); // NZST
+  const TARGET = new Date('2026-08-12T00:00:00+12:00'); // NZST
 
   function updateCountdown() {
     const now = new Date();
