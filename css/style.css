@@ -1730,6 +1730,42 @@ html[data-theme] .mob-overlay-close {
   }
 }
 
+/* Photo scroll strip */
+.accom-photo-scroll {
+  display: flex;
+  gap: 0.75rem;
+  overflow-x: auto;
+  padding: 0 1.5rem 1rem;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+
+.accom-photo-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.accom-photo-scroll img {
+  height: 280px;
+  width: auto;
+  border-radius: var(--radius);
+  object-fit: cover;
+  flex-shrink: 0;
+  scroll-snap-align: start;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.accom-photo-scroll img:hover {
+  opacity: 0.85;
+}
+
+@media (max-width: 768px) {
+  .accom-photo-scroll img {
+    height: 200px;
+  }
+}
+
 /* Info strip */
 .accom-info-strip {
   display: flex;
