@@ -1766,6 +1766,47 @@ html[data-theme] .mob-overlay-close {
   }
 }
 
+/* Scroll cards (labelled images in scroll strip) */
+.scroll-card {
+  flex-shrink: 0;
+  scroll-snap-align: start;
+  cursor: pointer;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  transition: all var(--transition);
+}
+
+.scroll-card:hover {
+  border-color: rgba(212, 168, 67, 0.2);
+}
+
+.scroll-card img {
+  height: 220px;
+  width: 280px;
+  object-fit: cover;
+  display: block;
+}
+
+.scroll-card-label {
+  display: block;
+  padding: 0.6rem 0.75rem;
+  font-size: 0.8rem;
+  color: var(--white-soft);
+}
+
+.scroll-card-label strong {
+  color: var(--white);
+}
+
+@media (max-width: 768px) {
+  .scroll-card img {
+    height: 180px;
+    width: 240px;
+  }
+}
+
 /* Info strip */
 .accom-info-strip {
   display: flex;
