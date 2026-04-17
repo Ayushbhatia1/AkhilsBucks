@@ -222,11 +222,19 @@
   var lbImg = document.getElementById('lb-img');
   var lbCounter = document.getElementById('lb-counter');
   var images = [
-    'img/accom/accom-1.jpeg', 'img/accom/accom-2.jpeg', 'img/accom/accom-3.jpeg',
-    'img/accom/accom-4.jpeg', 'img/accom/accom-5.jpeg',
-    'img/accom/bedroom-1.jpeg', 'img/accom/bedroom-2.jpeg', 'img/accom/bedroom-3.jpeg',
-    'img/accom/bedroom-4.jpeg', 'img/accom/bedroom-5.jpeg', 'img/accom/bedroom-6.jpeg',
-    'img/accom/bedroom-7.jpeg', 'img/accom/bedroom-8.jpeg'
+    'https://a0.muscache.com/im/pictures/prohost-api/Hosting-570395564141763491/original/aac422fe-46ba-4184-8717-20b4ebd2f6ad.jpeg?im_w=1280',
+    'https://a0.muscache.com/im/pictures/prohost-api/Hosting-570395564141763491/original/d95ebdc4-62d4-43ec-b078-dd1763322f0c.jpeg?im_w=1280',
+    'https://a0.muscache.com/im/pictures/prohost-api/Hosting-570395564141763491/original/69db5a88-a746-4f89-b603-5ebf797c4fc2.jpeg?im_w=1280',
+    'https://a0.muscache.com/im/pictures/prohost-api/Hosting-570395564141763491/original/fb688e41-5ea3-4e16-bf24-e9a082f212ad.jpeg?im_w=1280',
+    'https://a0.muscache.com/im/pictures/prohost-api/Hosting-570395564141763491/original/8c7ac3ab-c49a-4b00-9be4-83be5ee7daac.jpeg?im_w=1280',
+    'https://a0.muscache.com/im/pictures/prohost-api/Hosting-570395564141763491/original/b209e33d-4bfc-47ff-97ca-eddc763feb57.jpeg?im_w=720',
+    'https://a0.muscache.com/im/pictures/prohost-api/Hosting-570395564141763491/original/c3e1e4b5-5882-49e5-8606-612c3dfcc84d.jpeg?im_w=720',
+    'https://a0.muscache.com/im/pictures/prohost-api/Hosting-570395564141763491/original/3011df27-e80a-4482-baaf-b70e1885ce4e.jpeg?im_w=720',
+    'https://a0.muscache.com/im/pictures/prohost-api/Hosting-570395564141763491/original/70af1338-9815-4241-9114-5a52f42a0308.jpeg?im_w=720',
+    'https://a0.muscache.com/im/pictures/prohost-api/Hosting-570395564141763491/original/6565acb0-10b0-44f3-85cd-4c2218c8a7fd.jpeg?im_w=720',
+    'https://a0.muscache.com/im/pictures/prohost-api/Hosting-570395564141763491/original/c54d9f81-9919-46bf-b131-d94f86463d06.jpeg?im_w=720',
+    'https://a0.muscache.com/im/pictures/prohost-api/Hosting-570395564141763491/original/fcbf6269-9dc1-4867-b9fe-69bb3ce11c64.jpeg?im_w=720',
+    'https://a0.muscache.com/im/pictures/prohost-api/Hosting-570395564141763491/original/63f7c52c-5b59-43fd-b227-4e9b1dc12731.jpeg?im_w=720'
   ];
   var current = 0;
 
