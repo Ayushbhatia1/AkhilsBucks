@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Accommodation — Akhil's Bucks Trip</title>
+  <title>Stay — Akhil's Bucks Trip</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
@@ -19,9 +19,9 @@
         <li><a href="index.html">Home</a></li>
         <li><a href="schedule.html">Schedule</a></li>
         <li><a href="crew.html">The Crew</a></li>
+        <li><a href="accommodation.html">Stay</a></li>
         <li><a href="activities.html">Activities</a></li>
         <li><a href="flights.html">Flights</a></li>
-        <li><a href="accommodation.html">Accommodation</a></li>
       </ul>
       <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark theme">
         <svg class="theme-icon sun" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
@@ -37,9 +37,9 @@
     <a href="index.html">Home</a>
     <a href="schedule.html">Schedule</a>
     <a href="crew.html">The Crew</a>
+    <a href="accommodation.html">Stay</a>
     <a href="activities.html">Activities</a>
     <a href="flights.html">Flights</a>
-    <a href="accommodation.html">Accommodation</a>
     <button class="mob-theme-link" aria-label="Toggle theme">
       <svg class="theme-icon sun" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
       <svg class="theme-icon moon" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
@@ -47,23 +47,157 @@
   </div>
 
   <main>
-    <section class="page-hero">
-      <h1>The <span class="gold">Accommodation</span></h1>
-      <p>Where 16 blokes will attempt to coexist for 5 nights.</p>
-      <div class="section-divider"></div>
+
+    <!-- PHOTO GALLERY -->
+    <section class="accom-gallery">
+      <div class="accom-gallery-desktop">
+        <div class="accom-hero-img" data-lb="0"><img src="img/accom/accom-1.jpeg" alt="Property exterior" loading="eager"></div>
+        <div class="accom-grid-img" data-lb="1"><img src="img/accom/accom-2.jpeg" alt="Living area" loading="lazy"></div>
+        <div class="accom-grid-img" data-lb="2"><img src="img/accom/accom-3.jpeg" alt="Kitchen" loading="lazy"></div>
+        <div class="accom-grid-img" data-lb="3"><img src="img/accom/accom-4.jpeg" alt="Balcony view" loading="lazy"></div>
+        <div class="accom-grid-img" data-lb="4"><img src="img/accom/accom-5.jpeg" alt="Outdoor area" loading="lazy"></div>
+      </div>
+      <div class="accom-gallery-mobile">
+        <img src="img/accom/accom-1.jpeg" alt="Property" data-lb="0">
+        <img src="img/accom/accom-2.jpeg" alt="Living" data-lb="1">
+        <img src="img/accom/accom-3.jpeg" alt="Kitchen" data-lb="2">
+        <img src="img/accom/accom-4.jpeg" alt="View" data-lb="3">
+        <img src="img/accom/accom-5.jpeg" alt="Outdoor" data-lb="4">
+      </div>
     </section>
 
+    <!-- KEY INFO -->
     <section class="section">
       <div class="container">
-        <div class="coming-soon-wrap">
-          <div class="coming-soon-icon">&#127968;</div>
-          <h2>Coming Soon</h2>
-          <p>We're still locking in the perfect spot. Expect arguments over rooms, zero privacy, and someone sleeping on the couch by night two.</p>
-          <p class="coming-soon-sub">Check back soon &mdash; or don't. You'll find out when there are 47 messages on the group chat about it.</p>
+        <h1 style="margin-bottom:0.5rem">4 Luckie Lane, <span class="gold">Queenstown</span></h1>
+        <p style="color:var(--white-soft);margin-bottom:2rem">Two attached townhouses with lake and mountain views. Room for the whole mob.</p>
+
+        <div class="accom-info-strip">
+          <div class="accom-info-chip">
+            <strong>Check-in</strong>
+            <span>Wed 12 Aug, 3:00pm</span>
+          </div>
+          <div class="accom-info-chip">
+            <strong>Check-out</strong>
+            <span>Mon 17 Aug, 10:00am</span>
+          </div>
+          <div class="accom-info-chip">
+            <strong>5 nights</strong>
+            <span>16+ guests</span>
+          </div>
+          <a href="https://www.google.com/maps/search/4+Luckie+Lane+Queenstown" target="_blank" rel="noopener" class="cta" style="padding:0.6rem 1.4rem;font-size:0.85rem">Get Directions &rarr;</a>
         </div>
       </div>
     </section>
+
+    <!-- HIGHLIGHTS -->
+    <section class="section" style="padding-top:0">
+      <div class="container">
+        <div class="accom-highlights">
+          <div class="accom-highlight-card observe">
+            <div class="accom-highlight-icon">&#127956;</div>
+            <h3>Views for Days</h3>
+            <p>Lake Wakatipu and mountain views from an expansive balcony. BBQ on the deck. The kind of spot that makes you forget you're with 15 blokes.</p>
+          </div>
+          <div class="accom-highlight-card observe">
+            <div class="accom-highlight-icon">&#127968;</div>
+            <h3>Room for the Whole Mob</h3>
+            <p>8 bedrooms, 6 bathrooms, sleeps 16+. Two attached townhouses so there's enough space for everyone &mdash; and enough distance from whoever snores loudest.</p>
+          </div>
+          <div class="accom-highlight-card observe">
+            <div class="accom-highlight-icon">&#128273;</div>
+            <h3>Self Check-in</h3>
+            <p>Key safe access. No waiting around for anyone. Arrive, dump your bags, crack a beer. The way it should be.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BEDROOMS -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2>The <span class="gold">Bedrooms</span></h2>
+          <p>8 rooms. 16 blokes. The room allocation argument starts now.</p>
+          <div class="section-divider"></div>
+        </div>
+        <div class="accom-bedroom-grid">
+          <div class="accom-bedroom observe" data-lb="5"><img src="img/accom/bedroom-1.jpeg" alt="Bedroom 1" loading="lazy"><div class="accom-bedroom-info"><strong>Bedroom 1</strong><span>1 double bed</span></div></div>
+          <div class="accom-bedroom observe" data-lb="6"><img src="img/accom/bedroom-2.jpeg" alt="Bedroom 2" loading="lazy"><div class="accom-bedroom-info"><strong>Bedroom 2</strong><span>1 double bed</span></div></div>
+          <div class="accom-bedroom observe" data-lb="7"><img src="img/accom/bedroom-3.jpeg" alt="Bedroom 3" loading="lazy"><div class="accom-bedroom-info"><strong>Bedroom 3</strong><span>1 double bed</span></div></div>
+          <div class="accom-bedroom observe" data-lb="8"><img src="img/accom/bedroom-4.jpeg" alt="Bedroom 4" loading="lazy"><div class="accom-bedroom-info"><strong>Bedroom 4</strong><span>1 queen bed</span></div></div>
+          <div class="accom-bedroom observe" data-lb="9"><img src="img/accom/bedroom-5.jpeg" alt="Bedroom 5" loading="lazy"><div class="accom-bedroom-info"><strong>Bedroom 5</strong><span>1 queen bed</span></div></div>
+          <div class="accom-bedroom observe" data-lb="10"><img src="img/accom/bedroom-6.jpeg" alt="Bedroom 6" loading="lazy"><div class="accom-bedroom-info"><strong>Bedroom 6</strong><span>1 king bed</span></div></div>
+          <div class="accom-bedroom observe" data-lb="11"><img src="img/accom/bedroom-7.jpeg" alt="Bedroom 7" loading="lazy"><div class="accom-bedroom-info"><strong>Bedroom 7</strong><span>1 king bed</span></div></div>
+          <div class="accom-bedroom observe" data-lb="12"><img src="img/accom/bedroom-8.jpeg" alt="Bedroom 8" loading="lazy"><div class="accom-bedroom-info"><strong>Bedroom 8</strong><span>1 king bed</span></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHAT'S INCLUDED -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2>What's <span class="gold">Included</span></h2>
+          <div class="section-divider"></div>
+        </div>
+        <div class="accom-amenities">
+          <div class="accom-amenity observe">
+            <h3>&#127859; Kitchen</h3>
+            <p>Two full kitchens across both townhouses. Coffee and tea supplied. Everything you need to cook &mdash; not that anyone will.</p>
+          </div>
+          <div class="accom-amenity observe">
+            <h3>&#127796; Outdoor</h3>
+            <p>Balcony with lake views, BBQ, outdoor seating. Spa hire available &mdash; highly recommended for post-mountain recovery.</p>
+          </div>
+          <div class="accom-amenity observe">
+            <h3>&#128663; Parking</h3>
+            <p>3 uncovered parking spots. Sort out carpooling or fight over them &mdash; dealer's choice.</p>
+          </div>
+          <div class="accom-amenity observe">
+            <h3>&#128246; Wifi</h3>
+            <p>Free unlimited wifi. For uploading incriminating photos in real time.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GETTING THERE -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Getting <span class="gold">There</span></h2>
+          <div class="section-divider"></div>
+        </div>
+        <div class="accom-distances">
+          <div class="accom-distance observe"><strong>7 min</strong><span>to airport</span></div>
+          <div class="accom-distance observe"><strong>13 min</strong><span>to Queenstown CBD</span></div>
+          <div class="accom-distance observe"><strong>7 min</strong><span>to supermarkets</span></div>
+          <div class="accom-distance observe"><strong>35 min</strong><span>to Coronet Peak</span></div>
+          <div class="accom-distance observe"><strong>35 min</strong><span>to The Remarkables</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHECKOUT CALLOUT -->
+    <section class="section" style="padding-top:0">
+      <div class="container">
+        <div class="accom-callout">
+          <p>Check-out is 10am Monday. The flight home is 5:45pm. That's 7 hours and 45 minutes to become respectable human beings again. Good luck.</p>
+        </div>
+      </div>
+    </section>
+
   </main>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="accom-lightbox">
+    <button class="lightbox-close" id="lb-close">&times;</button>
+    <button class="lightbox-prev" id="lb-prev">&#10094;</button>
+    <button class="lightbox-next" id="lb-next">&#10095;</button>
+    <img class="lightbox-img" id="lb-img" src="" alt="">
+    <div class="lightbox-counter" id="lb-counter"></div>
+  </div>
 
   <footer class="footer">
     <p><span class="gold">Akhil's Bucks</span> &mdash; Queenstown, NZ &mdash; August 2026</p>

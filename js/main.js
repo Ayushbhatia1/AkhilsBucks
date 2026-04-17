@@ -213,3 +213,54 @@
     });
   });
 })();
+
+// ===== ACCOMMODATION LIGHTBOX =====
+(function () {
+  var lightbox = document.getElementById('accom-lightbox');
+  if (!lightbox) return;
+
+  var lbImg = document.getElementById('lb-img');
+  var lbCounter = document.getElementById('lb-counter');
+  var images = [
+    'img/accom/accom-1.jpeg', 'img/accom/accom-2.jpeg', 'img/accom/accom-3.jpeg',
+    'img/accom/accom-4.jpeg', 'img/accom/accom-5.jpeg',
+    'img/accom/bedroom-1.jpeg', 'img/accom/bedroom-2.jpeg', 'img/accom/bedroom-3.jpeg',
+    'img/accom/bedroom-4.jpeg', 'img/accom/bedroom-5.jpeg', 'img/accom/bedroom-6.jpeg',
+    'img/accom/bedroom-7.jpeg', 'img/accom/bedroom-8.jpeg'
+  ];
+  var current = 0;
+
+  function show(i) {
+    current = (i + images.length) % images.length;
+    lbImg.src = images[current];
+    lbCounter.textContent = (current + 1) + ' / ' + images.length;
+  }
+
+  function open(i) {
+    show(i);
+    lightbox.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function close() {
+    lightbox.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  document.querySelectorAll('[data-lb]').forEach(function (el) {
+    el.addEventListener('click', function () { open(parseInt(el.dataset.lb)); });
+  });
+
+  document.getElementById('lb-close').addEventListener('click', close);
+  document.getElementById('lb-prev').addEventListener('click', function () { show(current - 1); });
+  document.getElementById('lb-next').addEventListener('click', function () { show(current + 1); });
+
+  lightbox.addEventListener('click', function (e) { if (e.target === lightbox) close(); });
+
+  document.addEventListener('keydown', function (e) {
+    if (!lightbox.classList.contains('open')) return;
+    if (e.key === 'Escape') close();
+    if (e.key === 'ArrowLeft') show(current - 1);
+    if (e.key === 'ArrowRight') show(current + 1);
+  });
+})();
