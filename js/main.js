@@ -214,6 +214,34 @@
   });
 })();
 
+// ===== SCHEDULE SUMMARY MODAL =====
+(function () {
+  var openBtn = document.getElementById('sched-summary-open');
+  var modal = document.getElementById('sched-summary-modal');
+  var closeBtn = document.getElementById('sched-summary-close');
+
+  if (!openBtn || !modal) return;
+
+  function openModal() {
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    modal.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  openBtn.addEventListener('click', openModal);
+  closeBtn.addEventListener('click', closeModal);
+  modal.addEventListener('click', function (e) {
+    if (e.target === modal) closeModal();
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
+  });
+})();
+
 // ===== ACCOMMODATION LIGHTBOX =====
 (function () {
   var lightbox = document.getElementById('accom-lightbox');

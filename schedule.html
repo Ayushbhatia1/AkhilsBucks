@@ -51,7 +51,84 @@
       <h1>The <span class="gold">Schedule</span></h1>
       <p>Six days. Three days on the mountain. One golf course. Zero brain cells left by the end.</p>
       <div class="section-divider"></div>
+      <button class="sched-summary-btn" id="sched-summary-open">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="M9 12h6M9 16h4"/></svg>
+        Trip at a Glance
+      </button>
     </section>
+
+    <!-- Schedule Summary Modal -->
+    <div class="modal-backdrop" id="sched-summary-modal">
+      <div class="modal sched-summary-modal">
+        <button class="modal-close" id="sched-summary-close" aria-label="Close">&times;</button>
+        <h2 class="modal-title">Trip at a <span class="gold">Glance</span></h2>
+        <p class="modal-subtitle">Queenstown &mdash; 12&ndash;17 August 2026</p>
+
+        <div class="sched-summary-list">
+
+          <div class="sched-summary-row">
+            <div class="sched-summary-icon">&#9992;</div>
+            <div class="sched-summary-body">
+              <div class="sched-summary-meta"><span class="sched-day-label">Day 1</span><span class="sched-date">Wed, 12 Aug</span></div>
+              <div class="sched-summary-title">Arrival Day &mdash; Herding Cats</div>
+              <div class="sched-summary-sub">Check-in &middot; Grocery run &middot; Welcome beers &middot; Dinner in town</div>
+            </div>
+            <span class="timeline-tag tag-travel">Arrival</span>
+          </div>
+
+          <div class="sched-summary-row">
+            <div class="sched-summary-icon">&#9971;</div>
+            <div class="sched-summary-body">
+              <div class="sched-summary-meta"><span class="sched-day-label">Day 2</span><span class="sched-date">Thu, 13 Aug</span></div>
+              <div class="sched-summary-title">Golf &mdash; Gentlemen's Disgrace</div>
+              <div class="sched-summary-sub">18 holes &middot; Skins game &middot; Clubhouse lunch &middot; Big Night Out</div>
+            </div>
+            <span class="timeline-tag tag-golf">Golf</span>
+          </div>
+
+          <div class="sched-summary-row">
+            <div class="sched-summary-icon">&#127935;</div>
+            <div class="sched-summary-body">
+              <div class="sched-summary-meta"><span class="sched-day-label">Day 3</span><span class="sched-date">Fri, 14 Aug</span></div>
+              <div class="sched-summary-title">Snowboarding Day 1 &mdash; The Humbling</div>
+              <div class="sched-summary-sub">Coronet Peak &middot; Full day &middot; Night ski from 4pm &middot; Apres beers</div>
+            </div>
+            <span class="timeline-tag tag-snow">Snow</span>
+          </div>
+
+          <div class="sched-summary-row">
+            <div class="sched-summary-icon">&#127935;</div>
+            <div class="sched-summary-body">
+              <div class="sched-summary-meta"><span class="sched-day-label">Day 4</span><span class="sched-date">Sat, 15 Aug</span></div>
+              <div class="sched-summary-title">Snowboarding Day 2 &mdash; The Revenge Tour</div>
+              <div class="sched-summary-sub">Coronet Peak &middot; Full day &middot; Post-mountain feed</div>
+            </div>
+            <span class="timeline-tag tag-snow">Snow</span>
+          </div>
+
+          <div class="sched-summary-row">
+            <div class="sched-summary-icon">&#127935;</div>
+            <div class="sched-summary-body">
+              <div class="sched-summary-meta"><span class="sched-day-label">Day 5</span><span class="sched-date">Sun, 16 Aug</span></div>
+              <div class="sched-summary-title">Snowboarding Day 3 &mdash; Send It Sunday</div>
+              <div class="sched-summary-sub">Coronet Peak &middot; Final day on snow &middot; Send-off dinner &amp; last night out</div>
+            </div>
+            <span class="timeline-tag tag-snow">Snow</span>
+          </div>
+
+          <div class="sched-summary-row">
+            <div class="sched-summary-icon">&#9992;</div>
+            <div class="sched-summary-body">
+              <div class="sched-summary-meta"><span class="sched-day-label">Day 6</span><span class="sched-date">Mon, 17 Aug</span></div>
+              <div class="sched-summary-title">Departure &mdash; The Walk of Shame</div>
+              <div class="sched-summary-sub">Check-out &middot; Last coffee &middot; Airport</div>
+            </div>
+            <span class="timeline-tag tag-travel">Departure</span>
+          </div>
+
+        </div>
+      </div>
+    </div>
 
     <section class="section">
       <div class="container">
